@@ -2,66 +2,119 @@
 
 <html>
 
+
 <head>
+
 
     <meta charset="UTF-8">
 
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+    <meta name="description"
+
+
+          content="修的个人主页，记录Java后端、AI项目开发和计算机学习过程">
+
+
+
     <title>
+
         修的个人网站
+
     </title>
 
-    <link rel="stylesheet" href="style.css">
+
+
+    <link rel="stylesheet" href="css/style.css">
+
 
 </head>
+
 
 
 <body>
 
 
-<!-- 导航栏 -->
+
+<!-- 导航栏-->
+
 
 <nav class="navbar">
 
+
+
     <div class="logo">
+
         修的个人主页
+
     </div>
+
 
 
     <ul>
 
+
         <li>
+
             <a href="#home">首页</a>
+
         </li>
 
 
+
         <li>
+
             <a href="#projects">项目</a>
+
         </li>
 
 
+
         <li>
+
             <a href="#blog">博客</a>
+
         </li>
+
 
 
         <li>
-            <a href="#about">关于我</a>
+
+            <a href="#about">
+                关于我
+            </a>
+
         </li>
+
 
 
     </ul>
 
 
+    <button id="theme-btn">
+
+        🌙
+
+    </button>
+
+
+
 </nav>
 
 
-
+<main>
 
 
 <!-- 首页 -->
 
 
+
 <section id="home">
+
 
 
     <div class="hero">
@@ -70,14 +123,20 @@
         <!-- 左侧个人信息 -->
 
 
+
         <div class="hero-left">
+
+
 
 
             <img
 
-                    src="inuyasha.jpg"
+
+                    src="images/avatar.jpg"
+
 
                     class="avatar"
+
 
                     alt="修的头像"
 
@@ -85,40 +144,50 @@
             >
 
 
-
             <h1>
                 修
             </h1>
 
 
-
             <p class="intro">
+
+
 
                 计算机科学与技术专业学生
 
             </p>
 
 
-
             <p>
 
-                Java后端 | AI应用开发 | 游戏开发
+
+
+                通过项目实践学习软件开发，
+
+                关注 Java 后端与 AI 应用
+
 
             </p>
-
 
 
 
             <div class="buttons">
 
 
+
                 <a
+
 
                         href="https://github.com/xiuxxx0"
 
+
                         target="_blank">
 
-                    我的GitHub
+
+
+                    访问 GitHub
+
+
 
                 </a>
 
@@ -126,7 +195,9 @@
 
                 <a href="#projects">
 
+
                     查看项目
+
 
                 </a>
 
@@ -136,44 +207,59 @@
 
 
 
+
         </div>
 
 
 
-
-
-
-
-
-        <!-- 右侧精选项目 -->
+        <!-- 右侧精选项-->
 
 
         <div class="hero-right">
 
 
+
             <h2>
+
+
 
                 精选项目
 
+
             </h2>
-
-
 
 
             <div class="hero-card">
 
 
+
                 <h3>
 
+
+
                     🎣 AI捕鱼游戏
+
+
 
                 </h3>
 
 
+                <p class="status">
+
+
+
+                    🟢 Online Demo
+
+
+                </p>
+
 
                 <p>
 
-                    一款基于 HTML5 Canvas 开发的 AI 捕鱼小游戏。
+
+                    一款基HTML5 Canvas 开发的 AI 捕鱼小游戏
+
+
 
                 </p>
 
@@ -182,46 +268,66 @@
                 <ul class="feature-list">
 
 
+
                     <li>
+
                         🎯 AI队友自动辅助玩家
+
                     </li>
 
 
+
                     <li>
+
                         🧠 玩家行为分析系统
+
                     </li>
 
 
+
+
                     <li>
+
                         🐟 多种鱼类和Boss挑战
+
                     </li>
+
 
 
                     <li>
+
                         💬 AI互动聊天系统
+
                     </li>
+
 
 
                 </ul>
 
 
 
-
                 <div class="tags">
 
 
+
 <span>
+
 JavaScript
+
 </span>
 
 
                     <span>
+
 Canvas
+
 </span>
 
 
                     <span>
+
 AI
+
 </span>
 
 
@@ -229,14 +335,17 @@ AI
 
 
 
-
                 <a
 
                         class="project-btn"
 
-                        href="#projects">
+                        href="./projects/ai-fishing.html">
+
+
 
                     查看详情
+
+
 
                 </a>
 
@@ -246,6 +355,7 @@ AI
 
 
 
+
         </div>
 
 
@@ -253,12 +363,8 @@ AI
     </div>
 
 
+
 </section>
-
-
-
-
-
 
 
 
@@ -266,246 +372,25 @@ AI
 <!-- 项目 -->
 
 
+
 <section id="projects">
+
 
 
     <h2>
 
+
         全部项目
+
+
 
     </h2>
 
 
 
+    <div class="projects"
 
-    <div class="projects">
-
-
-
-
-
-
-        <!-- AI捕鱼项目 -->
-
-
-        <div class="card">
-
-
-            <div class="project-images">
-
-
-                <img
-
-                        src="images/fishing1.png"
-
-                        alt="AI捕鱼截图1"
-
-                >
-
-
-
-                <img
-
-                        src="images/fishing2.png"
-
-                        alt="AI捕鱼截图2"
-
-                >
-
-
-
-            </div>
-
-
-
-
-
-            <h3>
-
-                🎣 AI捕鱼游戏
-
-            </h3>
-
-
-
-
-            <p>
-
-                基于 Canvas 开发的 AI 小游戏，
-
-                包含 AI队友、
-
-                行为分析系统。
-
-            </p>
-
-
-
-
-
-            <div class="tags">
-
-
-<span>
-JavaScript
-</span>
-
-
-
-                <span>
-Canvas
-</span>
-
-
-
-                <span>
-AI
-</span>
-
-
-
-                <span>
-Game
-</span>
-
-
-
-            </div>
-
-
-
-
-
-
-
-            <a
-
-                    class="project-btn"
-
-                    href="https://xiuxxx0.github.io/ai-fishing-game/"
-
-                    target="_blank">
-
-                在线体验
-
-            </a>
-
-
-
-
-
-
-            <a
-
-                    class="project-btn github-btn"
-
-                    href="https://github.com/xiuxxx0/ai-fishing-game"
-
-                    target="_blank">
-
-                GitHub源码
-
-            </a>
-
-
-
-
-
-        </div>
-
-
-
-
-
-
-
-
-
-        <!-- Java项目 -->
-
-
-        <div class="card">
-
-
-            <h3>
-
-                ☕ Java学习项目
-
-            </h3>
-
-
-
-
-            <p>
-
-                Java基础学习，
-
-                正在学习Spring Boot，
-
-                准备开发后端项目。
-
-            </p>
-
-
-
-
-
-            <div class="tags">
-
-
-<span>
-
-Java
-
-</span>
-
-
-
-                <span>
-
-Spring Boot
-
-</span>
-
-
-
-                <span>
-
-MySQL
-
-</span>
-
-
-
-            </div>
-
-
-
-
-
-
-
-            <a
-
-                    class="project-btn github-btn"
-
-                    href="https://github.com/xiuxxx0"
-
-                    target="_blank">
-
-                查看源码
-
-            </a>
-
-
-
-
-
-        </div>
-
-
-
-
+         id="project-list">
 
 
 
@@ -513,170 +398,43 @@ MySQL
 
 
 
+
 </section>
-
-
-
-
-
-
 
 
 
 <!-- 博客 -->
 
 
+
 <section id="blog">
 
 
+
     <h2>
+
         博客
+
     </h2>
+
 
 
     <p class="blog-intro">
 
+
+
         记录Java学习、AI项目开发和计算机技术成长过程。
+
+
 
     </p>
 
 
 
 
-    <div class="blog-list">
+    <div class="blog-list"
 
-
-
-        <div class="blog-card">
-
-
-            <h3>
-                ☕ Java学习笔记
-            </h3>
-
-
-            <p>
-
-                记录Java基础、
-
-                面向对象、
-
-                Spring Boot学习过程。
-
-            </p>
-
-
-            <div class="blog-tags">
-
-<span>
-Java
-</span>
-
-                <span>
-后端
-</span>
-
-            </div>
-
-
-            <a href="blog/java-basic.html">
-                阅读全文 →
-            </a>
-
-
-        </div>
-
-
-
-
-
-
-
-        <div class="blog-card">
-
-
-            <h3>
-                🤖 AI项目开发记录
-            </h3>
-
-
-            <p>
-
-                AI捕鱼游戏开发过程，
-
-                Canvas动画、
-
-                AI系统设计。
-
-            </p>
-
-
-            <div class="blog-tags">
-
-<span>
-AI
-</span>
-
-                <span>
-JavaScript
-</span>
-
-            </div>
-
-
-            <a href="blog/ai-fishing.html">
-                阅读全文 →
-            </a>
-
-
-        </div>
-
-
-
-
-
-
-
-
-        <div class="blog-card">
-
-
-            <h3>
-                💻 软件设计师备考
-            </h3>
-
-
-            <p>
-
-                计算机组成原理、
-
-                数据结构、
-
-                操作系统学习笔记。
-
-            </p>
-
-
-            <div class="blog-tags">
-
-<span>
-软考
-</span>
-
-                <span>
-计算机基础
-</span>
-
-            </div>
-
-
-            <a href="blog/soft-test.html">
-                阅读全文 →
-            </a>
-
-
-        </div>
-
+         id="blog-list">
 
 
     </div>
@@ -687,14 +445,7 @@ JavaScript
 
 
 
-
-
-
-
-
-
-
-<!-- 关于我 -->
+<!-- 关于我-->
 
 
 <section id="about">
@@ -702,9 +453,14 @@ JavaScript
 
     <h2>
 
+
+
         👨‍💻 关于我
 
+
+
     </h2>
+
 
 
 
@@ -712,41 +468,67 @@ JavaScript
 
 
 
-
-
         <p>
+
+
 
             🎓 江西科技师范大学
 
+
+
             计算机科学与技术本科学生
+
+
 
         </p>
 
 
 
+
         <p>
+
+
 
             💻 当前学习：
 
+
+
             Java后端开发、
+
+
 
             Spring Boot、
 
+
+
             AI应用开发
+
+
 
         </p>
 
 
 
+
         <p>
+
+
 
             🚀 兴趣方向：
 
+
+
             游戏开发、
+
+
 
             人工智能、
 
+
+
             软件工程
+
+
 
         </p>
 
@@ -754,85 +536,208 @@ JavaScript
 
         <p>
 
+
+
             📚 正在准备：
 
+
+
             软件设计师考试
+
 
         </p>
 
 
+    </div>
+
+
+
+
+    <!-- GitHub 数据 -->
+
+
+
+    <div class="github-box">
+
+
+        <h2>
+
+            🐙 GitHub
+
+        </h2>
+
+        <div class="github-contribution">
+
+            <h3>
+                GitHub Contributions
+            </h3>
+
+
+            <img
+                    src="https://ghchart.rshah.org/xiuxxx0"
+                    alt="GitHub Contribution Chart">
+
+        </div>
+
+        <div class="github-stats">
+
+
+
+            <div>
+
+
+
+                <h3 id="repo-count">
+
+                    0
+
+                </h3>
+
+
+
+                <p>
+
+                    项目作品
+
+                </p>
+
+
+
+            </div>
+
+
+
+
+            <div>
+
+
+
+                <h3 id="star-count">
+
+                    0
+
+                </h3>
+
+
+
+                <p>
+
+                    Stars
+
+                </p>
+
+
+
+            </div>
+
+
+
+            <div>
+
+
+
+                <h3 id="followers-count">
+
+                    0
+
+                </h3>
+
+
+
+                <p>
+
+                    Followers
+
+                </p>
+
+
+
+            </div>
+
+
+
+        </div>
+
+
+
+        <div class="github-link">
+
+
+
+            <a href="https://github.com/xiuxxx0"
+
+               target="_blank">
+
+
+
+                访问 GitHub
+
+
+
+            </a>
+
+
+
+        </div>
+
 
     </div>
 
-    <div class="stats">
-
-
-        <div>
-            <h3>
-                📦
-            </h3>
-            <p>
-                项目
-            </p>
-        </div>
-
-
-        <div>
-            <h3>
-                🔥
-            </h3>
-            <p>
-                持续学习
-            </p>
-        </div>
-
-
-        <div>
-            <h3>
-                ⭐
-            </h3>
-            <p>
-                GitHub
-            </p>
-        </div>
-
-
-    </div>
 
 <div class="skills">
 
 
+
 <span>
+
 ☕ Java
+
 </span>
 
 
+
         <span>
+
 🌱 Spring Boot
+
 </span>
 
 
+
         <span>
+
 🗄 MySQL
+
 </span>
 
 
+
         <span>
+
 🐍 Python
+
 </span>
 
 
+
         <span>
+
 🤖 AI
+
 </span>
+
 
 
         <span>
+
 🎮 Canvas
+
 </span>
+
 
 
     </div>
+
 
 
 
@@ -840,12 +745,27 @@ JavaScript
 
 
 
+</main>
 
 
 
+<footer>
 
-<script src="script.js"></script>
 
+
+    <p>
+
+        © 修的个人网站
+
+        Built with HTML CSS JavaScript
+
+    </p>
+
+
+</footer>
+
+
+<script src="js/script.js"></script>
 
 
 </body>

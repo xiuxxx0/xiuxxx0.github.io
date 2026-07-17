@@ -1,0 +1,20 @@
+[
+  {
+    "title": "Java基础学习笔记",
+    "date": "2026-07-10",
+    "tag": "Java",
+    "url": "blog/java-basic.html"
+  },
+  {
+    "title": "AI捕鱼游戏开发过程",
+    "date": "2026-07-12",
+    "tag": "AI",
+    "url": "blog/ai-fishing.html"
+  },
+  {
+    "title": "软件设计师备考记录",
+    "date": "2026-07-15",
+    "tag": "考试",
+    "url": "blog/soft-test.html"
+  }
+]
