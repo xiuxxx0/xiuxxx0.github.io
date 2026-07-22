@@ -1,0 +1,88 @@
+﻿/* =====================
+   Layout: Navbar, Sections, Footer
+===================== */
+
+/* ---- Navbar ---- */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 60px;
+  background: var(--nav-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: var(--nav-border);
+  box-shadow: var(--nav-shadow);
+  z-index: 1000;
+  transition: background var(--transition);
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.navbar ul {
+  display: flex;
+  gap: 30px;
+}
+
+.navbar a {
+  color: var(--text);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+.navbar a:hover {
+  color: var(--primary);
+}
+
+#theme-btn {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 22px;
+}
+
+/* ---- Sections ---- */
+section {
+  padding: 100px 20px;
+  min-height: 500px;
+  animation: fadeIn 0.8s ease;
+}
+
+/* ---- Hero ---- */
+.hero {
+  max-width: 1100px;
+  margin: 70px auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 70px;
+}
+
+.hero-left {
+  flex: 0.8;
+  text-align: left;
+  animation: fadeUp 0.8s ease;
+}
+
+.hero-right {
+  flex: 1.2;
+  text-align: center;
+  animation: fadeUp 0.8s ease;
+}
+
+/* ---- Footer ---- */
+footer {
+  text-align: center;
+  padding: 35px;
+  color: var(--text-muted);
+  font-size: 14px;
+  transition: color var(--transition);
+}

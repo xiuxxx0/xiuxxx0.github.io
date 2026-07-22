@@ -1,1 +1,109 @@
-<!DOCTYPE html><html lang="zh-CN"><head>    <meta charset="UTF-8">    <meta name="viewport"          content="width=device-width, initial-scale=1.0">    <meta name="description"          content="AI捕鱼游戏开发记录">    <title>        AI捕鱼游戏开发记录    </title>    <link rel="stylesheet" href="../css/style.css"></head><body><nav class="navbar">    <div class="logo">        修的个人主页    </div>    <ul>        <li>            <a href="../index.html">                首页            </a>        </li>        <li>            <a href="../index.html#blog">                博客            </a>        </li>    </ul></nav><div class="article">    <h1>        🤖 AI捕鱼游戏开发记录：从小游戏到AI系统    </h1>    <p class="date">        发布时间：2026年7月    </p>    <p class="article-intro">        这是我的第一个 AI 游戏项目。        通过 HTML5 Canvas 实现基础捕鱼玩法，        并尝试加入 AI 队友、行为分析和智能交互系统。    </p>    <h2>        项目起源    </h2>    <p>        最开始学习计算机时，        我一直希望能够做出真正运行的软件。        相比只学习语法，        我更喜欢通过项目理解技术。        因此，我尝试开发一个简单的捕鱼小游戏，        并在游戏基础上加入 AI 功能。    </p>    <h2>        游戏基础开发    </h2>    <p>        项目首先实现基础游戏逻辑：    </p>    <ul>        <li>            玩家控制炮台进行射击        </li>        <li>            鱼类随机移动        </li>        <li>            子弹碰撞检测        </li>        <li>            积分系统        </li>    </ul>    <p>        这些功能让我第一次理解了游戏开发中的：        对象管理、动画循环和状态控制。    </p>    <h2>        加入AI队友系统    </h2>    <p>        为了让游戏更加智能，        我设计了 AI 队友。        AI 可以：    </p>    <ul>        <li>            自动寻找目标        </li>        <li>            优先攻击高价值鱼类        </li>        <li>            辅助玩家提高游戏体验        </li>    </ul>    <p>        虽然它不是复杂的机器学习模型，        但通过规则设计，        让我理解了 AI 系统在实际项目中的应用方式。    </p>    <h2>        玩家行为分析    </h2>    <p>        为了让 AI 更像真实队友，        项目加入了玩家行为分析。        例如：    </p>    <ul>        <li>            记录玩家攻击习惯        </li>        <li>            分析玩家操作方式        </li>        <li>            调整AI辅助策略        </li>    </ul>    <h2>        开发过程中遇到的问题    </h2>    <p>        最大的困难不是实现单个功能，        而是多个系统同时运行。        例如：        鱼类移动、        碰撞检测、        AI逻辑、        游戏状态管理        需要保持稳定。    </p>    <p>        在不断调试过程中，        我逐渐理解了软件工程中的模块化设计。    </p>    <h2>        使用到的技术    </h2>    <div class="tags"><span>JavaScript</span>        <span>HTML5 Canvas</span>        <span>AI Logic</span>        <span>GitHub Pages</span>    </div>    <h2>        项目收获    </h2>    <p>        通过这个项目，        我学习到了：    </p>    <ul>        <li>            如何设计一个完整的小型软件        </li>        <li>            如何组织JavaScript代码结构        </li>        <li>            如何将AI思想加入实际应用        </li>        <li>            如何通过GitHub管理项目        </li>    </ul>    <h2>        未来计划    </h2>    <p>        未来希望继续学习：        Java后端开发、        Spring Boot、        数据库技术。        将现在的小型项目，        逐渐扩展成完整的软件系统。    </p>    <h2>        项目链接    </h2>    <p>        在线体验：        <a href="https://xiuxxx0.github.io/ai-fishing-game/"           target="_blank">            AI捕鱼游戏        </a>    </p>    <p>        源码：        <a href="https://github.com/xiuxxx0/ai-fishing-game"           target="_blank">            GitHub        </a>    </p>    <a class="project-btn"       href="../index.html#blog">        ← 返回博客列表    </a></div><footer>    <p>        © 修的个人网站        Built with HTML CSS JavaScript    </p></footer></body></html>
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AI捕鱼游戏开发记录">
+  <title>AI捕鱼游戏开发记录</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<nav class="navbar">
+  <div class="logo">修的个人主页</div>
+  <ul>
+    <li><a href="../index.html">首页</a></li>
+    <li><a href="../index.html#blog">博客</a></li>
+  </ul>
+</nav>
+
+<div class="article">
+  <h1>🤖 AI捕鱼游戏开发记录：从小游戏到AI系统</h1>
+  <p class="date">发布时间：2026年7月</p>
+  <p class="article-intro">
+    这是我的第一个 AI 游戏项目。通过 HTML5 Canvas 实现基础捕鱼玩法，
+    并尝试加入 AI 队友、行为分析和智能交互系统。
+  </p>
+
+  <h2>项目起源</h2>
+  <p>
+    最开始学习计算机时，我一直希望能够做出真正运行的软件。
+    相比只学习语法，我更喜欢通过项目理解技术。
+    因此，我尝试开发一个简单的捕鱼小游戏，并在游戏基础上加入 AI 功能。
+  </p>
+
+  <h2>游戏基础开发</h2>
+  <p>项目首先实现基础游戏逻辑：</p>
+  <ul>
+    <li>玩家控制炮台进行射击</li>
+    <li>鱼类随机移动</li>
+    <li>子弹碰撞检测</li>
+    <li>积分系统</li>
+  </ul>
+  <p>
+    这些功能让我第一次理解了游戏开发中的：对象管理、动画循环和状态控制。
+  </p>
+
+  <h2>加入AI队友系统</h2>
+  <p>为了让游戏更加智能，我设计了 AI 队友。AI 可以：</p>
+  <ul>
+    <li>自动寻找目标</li>
+    <li>优先攻击高价值鱼类</li>
+    <li>辅助玩家提高游戏体验</li>
+  </ul>
+  <p>
+    虽然它不是复杂的机器学习模型，但通过规则设计，
+    让我理解了 AI 系统在实际项目中的应用方式。
+  </p>
+
+  <h2>玩家行为分析</h2>
+  <p>为了让 AI 更像真实队友，项目加入了玩家行为分析。例如：</p>
+  <ul>
+    <li>记录玩家攻击习惯</li>
+    <li>分析玩家操作方式</li>
+    <li>调整AI辅助策略</li>
+  </ul>
+
+  <h2>开发过程中遇到的问题</h2>
+  <p>
+    最大的困难不是实现单个功能，而是多个系统同时运行。
+    例如：鱼类移动、碰撞检测、AI逻辑、游戏状态管理都需要保持稳定。
+  </p>
+  <p>
+    在不断调试过程中，我逐渐理解了软件工程中的模块化设计。
+  </p>
+
+  <h2>使用到的技术</h2>
+  <div class="tags">
+    <span>JavaScript</span>
+    <span>HTML5 Canvas</span>
+    <span>AI Logic</span>
+    <span>GitHub Pages</span>
+  </div>
+
+  <h2>项目收获</h2>
+  <p>通过这个项目，我学习到了：</p>
+  <ul>
+    <li>如何设计一个完整的小型软件</li>
+    <li>如何组织JavaScript代码结构</li>
+    <li>如何将AI思想加入实际应用</li>
+    <li>如何通过GitHub管理项目</li>
+  </ul>
+
+  <h2>未来计划</h2>
+  <p>
+    未来希望继续学习：Java后端开发、Spring Boot、数据库技术。
+    将现在的小型项目，逐渐扩展成完整的软件系统。
+  </p>
+
+  <h2>项目链接</h2>
+  <p>在线体验：<a href="https://xiuxxx0.github.io/ai-fishing-game/" target="_blank" rel="noopener">AI捕鱼游戏</a></p>
+  <p>源代码：<a href="https://github.com/xiuxxx0/ai-fishing-game" target="_blank" rel="noopener">GitHub</a></p>
+
+  <a class="project-btn" href="../index.html#blog">← 返回博客列表</a>
+</div>
+
+<footer>
+  <p>© 修的个人网站 &nbsp; Built with HTML CSS JavaScript</p>
+</footer>
+</body>
+</html>

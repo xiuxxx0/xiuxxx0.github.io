@@ -1,0 +1,47 @@
+﻿/* =====================
+   Article Pages (Blog & Project Detail)
+===================== */
+.article {
+  max-width: 850px;
+  margin: 120px auto;
+  padding: 40px;
+  background: var(--card-bg-solid);
+  border-radius: var(--radius);
+  box-shadow: var(--card-shadow);
+  text-align: left;
+  transition: background var(--transition), box-shadow var(--transition);
+}
+
+.article h1 {
+  color: var(--primary);
+  margin-bottom: 25px;
+}
+
+.article h2 {
+  margin-top: 35px;
+}
+
+.article p {
+  line-height: 1.9;
+  color: var(--text-secondary);
+}
+
+.article li {
+  margin: 10px;
+}
+
+.article .date {
+  color: var(--text-muted);
+  margin-bottom: 25px;
+}
+
+.article .article-intro {
+  font-size: 17px;
+  color: var(--text-secondary);
+  margin-bottom: 30px;
+  line-height: 1.8;
+}
+
+.article img {
+  border-radius: var(--radius-sm);
+}

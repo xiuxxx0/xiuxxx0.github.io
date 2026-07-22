@@ -1,0 +1,85 @@
+﻿/* =====================
+   Responsive Design
+===================== */
+@media (max-width: 800px) {
+  .navbar {
+    padding: 0 20px;
+  }
+
+  .logo {
+    font-size: 18px;
+  }
+
+  .navbar ul {
+    gap: 12px;
+  }
+
+  .navbar a {
+    font-size: 13px;
+  }
+
+  .hero {
+    flex-direction: column;
+    margin-top: 100px;
+    gap: 40px;
+  }
+
+  .hero-left {
+    text-align: center;
+  }
+
+  .hero-left h1 {
+    font-size: 35px;
+  }
+
+  .avatar {
+    width: 130px;
+    height: 130px;
+  }
+
+  .hero-card {
+    width: 100%;
+  }
+
+  .projects {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card,
+  .blog-card {
+    width: 90%;
+  }
+
+  .github-stats {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .github-stats div {
+    width: 80%;
+  }
+
+  .skills {
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 500px) {
+  .navbar ul {
+    display: none;
+  }
+
+  .logo {
+    font-size: 16px;
+  }
+
+  section {
+    padding: 80px 15px;
+  }
+
+  .buttons a {
+    width: 90%;
+    text-align: center;
+  }
+}
