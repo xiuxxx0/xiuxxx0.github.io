@@ -1,0 +1,47 @@
+﻿name: Update GitHub Stats
+
+on:
+  schedule:
+    # 每小时运行一次
+    - cron: '0 * * * *'
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-stats:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Fetch GitHub stats
+        run: |
+          # 获取用户信息
+          USER=$(curl -s "https://api.github.com/users/xiuxxx0")
+          PUBLIC_REPOS=$(echo "$USER" | jq -r '.public_repos // 0')
+          FOLLOWERS=$(echo "$USER" | jq -r '.followers // 0')
+
+          # 获取仓库列表并计算 Star 总数
+          STARS=$(curl -s "https://api.github.com/users/xiuxxx0/repos?per_page=100" | jq '[.[] | select(.fork == false) | .stargazers_count] | add // 0')
+
+          # 写入 JSON 文件
+          cat > data/github-stats.json << EOF
+          {
+            "public_repos": $PUBLIC_REPOS,
+            "stars": $STARS,
+            "followers": $FOLLOWERS,
+            "updated_at": "$(date -u +"%Y-%m-%dT%H:%M:%SZ")"
+          }
+          EOF
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/github-stats.json
+          git diff --quiet && git diff --staged --quiet || git commit -m "chore: update GitHub stats [skip ci]"
+          git push

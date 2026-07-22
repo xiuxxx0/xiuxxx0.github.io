@@ -1,38 +1,28 @@
 ﻿/* =====================
    GitHub API Module
+   (uses cached data from GitHub Actions)
 ===================== */
 const GitHub = (() => {
-  const USERNAME = "xiuxxx0";
-  const API_BASE = "https://api.github.com";
+  const STATS_PATH = "data/github-stats.json";
 
-  async function fetchUser() {
+  async function fetchStats() {
     try {
-      const res = await fetch(`${API_BASE}/users/${USERNAME}`);
+      const res = await fetch(STATS_PATH);
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       const data = await res.json();
       document.getElementById("repo-count").innerText = data.public_repos;
+      document.getElementById("star-count").innerText = data.stars;
       document.getElementById("followers-count").innerText = data.followers;
     } catch (err) {
-      console.warn("GitHub user data load failed:", err.message);
-    }
-  }
-
-  async function fetchStars() {
-    try {
-      const res = await fetch(`${API_BASE}/users/${USERNAME}/repos`);
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      const repos = await res.json();
-      const stars = repos
-        .filter(repo => !repo.fork)
-        .reduce((sum, repo) => sum + repo.stargazers_count, 0);
-      document.getElementById("star-count").innerText = stars;
-    } catch (err) {
-      console.warn("GitHub stars load failed:", err.message);
+      console.warn("GitHub stats load failed:", err.message);
+      document.querySelectorAll(".github-stats h3").forEach(el => {
+        el.innerText = "—";
+      });
     }
   }
 
   async function init() {
-    await Promise.all([fetchUser(), fetchStars()]);
+    await fetchStats();
   }
 
   return { init };
