@@ -15,9 +15,6 @@ const GitHub = (() => {
       document.getElementById("followers-count").innerText = data.followers;
     } catch (err) {
       console.warn("GitHub stats load failed:", err.message);
-      document.querySelectorAll(".github-stats h3").forEach(el => {
-        el.innerText = "—";
-      });
     }
   }
 
