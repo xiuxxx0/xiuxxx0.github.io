@@ -47,7 +47,6 @@ jobs:
           set -eo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git pull --rebase origin main
           git add data/github-stats.json
           git diff --quiet && git diff --staged --quiet || git commit -m "chore: update GitHub stats [skip ci]"
           git push
