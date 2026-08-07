@@ -25,12 +25,26 @@ jobs:
           set -eo pipefail
 
           # 获取用户信息 (带认证，避免 API 限流)
-          USER=$(curl -s --retry 3 -H "Authorization: Bearer ${GH_TOKEN}" "https://api.github.com/users/xiuxxx0")
-          PUBLIC_REPOS=$(echo "$USER" | jq -r '.public_repos // 0')
-          FOLLOWERS=$(echo "$USER" | jq -r '.followers // 0')
+          fetch_stats() {
+            USER=$(curl -s --retry 3 -H "Authorization: Bearer ${GH_TOKEN}" "https://api.github.com/users/xiuxxx0")
+            PUBLIC_REPOS=$(echo "$USER" | jq -r '.public_repos // 0')
+            FOLLOWERS=$(echo "$USER" | jq -r '.followers // 0')
 
-          # 获取仓库列表并计算 Star 总数 (带认证 + 分页兜底)
-          STARS=$(curl -s --retry 3 -H "Authorization: Bearer ${GH_TOKEN}" "https://api.github.com/users/xiuxxx0/repos?per_page=100" | jq '[.[] | select(.fork == false) | .stargazers_count] | add // 0')
+            # 获取仓库列表并计算 Star 总数 (带认证 + 分页兜底)
+            STARS=$(curl -s --retry 3 -H "Authorization: Bearer ${GH_TOKEN}" "https://api.github.com/users/xiuxxx0/repos?per_page=100" | jq '[.[] | select(.fork == false) | .stargazers_count] | add // 0')
+          }
+
+          # 拉取失败时最多重试 3 次，间隔 15 秒
+          retry=0
+          until fetch_stats; do
+            retry=$((retry + 1))
+            if [ "$retry" -ge 3 ]; then
+              echo "Failed to fetch GitHub stats after 3 attempts" >&2
+              exit 1
+            fi
+            echo "Fetch attempt ${retry} failed, retrying in 15s..." >&2
+            sleep 15
+          done
 
           # 写入 JSON 文件
           cat > data/github-stats.json << EOF
@@ -47,6 +61,24 @@ jobs:
           set -eo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/github-stats.json
-          git diff --quiet && git diff --staged --quiet || git commit -m "chore: update GitHub stats [skip ci]"
-          git push
+
+          # push 失败时先同步远端再重试，最多 3 次
+          push_changes() {
+            git add data/github-stats.json
+            if ! git diff --cached --quiet; then
+              git commit -m "chore: update GitHub stats [skip ci]"
+            fi
+            git push
+          }
+
+          retry=0
+          until push_changes; do
+            retry=$((retry + 1))
+            if [ "$retry" -ge 3 ]; then
+              echo "Failed to push after 3 attempts" >&2
+              exit 1
+            fi
+            echo "Push attempt ${retry} failed, pulling latest and retrying..." >&2
+            git pull --rebase
+            sleep 5
+          done
