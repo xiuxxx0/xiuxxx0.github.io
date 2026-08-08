@@ -11,6 +11,13 @@ const Projects = (() => {
       link: "projects/ai-fishing.html"
     },
     {
+      title: "Ouroboros 衔尾蛇",
+      image: "images/ouroboros-logo.png",
+      desc: "Vue 3 + Phaser 开发的衔尾蛇生存游戏",
+      tech: ["Vue 3", "Phaser", "TypeScript"],
+      link: "projects/ouroboros-gamejam.html"
+    },
+    {
       title: "Java学习项目",
       image: "images/avatar.jpg",
       desc: "Java后端学习项目",
