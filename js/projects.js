@@ -4,18 +4,18 @@
 const Projects = (() => {
   const DATA = [
     {
-      title: "AI捕鱼游戏",
-      image: "images/fishing1.png",
-      desc: "基于Canvas开发的AI小游戏",
-      tech: ["JavaScript", "Canvas", "AI"],
-      link: "projects/ai-fishing.html"
-    },
-    {
       title: "圈一圈（Ouroboros）",
       image: "images/ouroboros-logo.png",
       desc: "衔尾蛇闭环生存游戏，2026 BOKE VIBE JAM 一等奖",
       tech: ["Vue 3", "Phaser", "TypeScript"],
       link: "projects/ouroboros-gamejam.html"
+    },
+    {
+      title: "AI捕鱼游戏",
+      image: "images/fishing1.png",
+      desc: "基于Canvas开发的AI小游戏",
+      tech: ["JavaScript", "Canvas", "AI"],
+      link: "projects/ai-fishing.html"
     },
     {
       title: "Java学习项目",

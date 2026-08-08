@@ -4,6 +4,12 @@
 const Blogs = (() => {
   const DATA = [
     {
+      title: "圈一圈（Ouroboros）开发记录",
+      date: "2026-08-08",
+      tag: "游戏",
+      url: "blog/ouroboros.html"
+    },
+    {
       title: "Java基础学习笔记",
       date: "2026-07-10",
       tag: "Java",

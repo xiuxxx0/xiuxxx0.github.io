@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="圈一圈（Ouroboros）开发记录">
+  <title>圈一圈（Ouroboros）开发记录</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<nav class="navbar">
+  <div class="logo">修的个人主页</div>
+  <ul>
+    <li><a href="../index.html">首页</a></li>
+    <li><a href="../index.html#blog">博客</a></li>
+  </ul>
+</nav>
+
+<div class="article">
+  <h1>🐍 圈一圈（Ouroboros）：衔尾蛇的闭环生存游戏</h1>
+  <p class="date">发布时间：2026年8月8日</p>
+  <p class="article-intro">
+    《圈一圈（Ouroboros）》是我们在 2026 BOKE VIBE JAM 上获得一等奖的作品。
+    玩家控制不断延伸的蛇身形成闭环，在循环中完成战斗与净化，
+    围绕“连接、循环与成长”展开玩法。
+  </p>
+
+  <h2>项目起源</h2>
+  <p>
+    灵感来自“衔尾蛇”——一条咬住自己尾巴的蛇，象征循环与无限。
+    我们希望把这种环形意象变成真正的玩法：不是把蛇当作一条线去躲避，
+    而是用它去包围、捕获敌人，形成自己的闭环。
+  </p>
+
+  <h2>核心玩法设计</h2>
+  <p>游戏的核心机制很简单：</p>
+  <ul>
+    <li>控制蛇身移动，环绕敌人</li>
+    <li>让首尾再次相遇，形成闭环并捕获敌人</li>
+    <li>在循环中完成战斗与净化，积累净化积分</li>
+  </ul>
+  <p>
+    简单的环形机制被转化为战斗、成长与阶段挑战，这也是整个项目最有意思的部分。
+  </p>
+
+  <h2>Boss 战：噬环者</h2>
+  <p>
+    净化积分首次达到 15 分时，噬环者 Boss 登场。
+    玩家需要通过闭环捕获外置核心来破坏它的护甲，才能进入下一阶段。
+    Boss 出场后会切换专属背景音乐，冲刺、破甲和击败都有独立的声音反馈。
+  </p>
+
+  <h2>技术架构</h2>
+  <p>
+    项目基于 Vue 3 + Phaser + TypeScript 开发，采用模块化架构：
+  </p>
+  <ul>
+    <li>engine：纯 TypeScript 玩法规则</li>
+    <li>phaser：Scene、渲染、碰撞与资源清单</li>
+    <li>input：键盘到语义动作的映射</li>
+    <li>audio：音频偏好与安全持久化</li>
+  </ul>
+  <p>
+    玩法规则与渲染层分离，让逻辑更容易测试和维护。
+  </p>
+
+  <h2>多端支持</h2>
+  <p>
+    Web 构建是唯一的游戏产物，Electron 与 Capacitor 只负责装载 dist，
+    因此同一套代码可以打包成 Windows 桌面版和 Android 应用。
+  </p>
+
+  <h2>团队协作与工程化</h2>
+  <p>
+    这是团队协作项目，我们建立了完整的工程化流程：
+  </p>
+  <ul>
+    <li>代码质量检查：vue-tsc 类型检查</li>
+    <li>单元测试：vitest</li>
+    <li>构建验证：npm run verify</li>
+    <li>文档化：架构、美术、打包规范都在 docs/ 中</li>
+  </ul>
+
+  <h2>开发收获</h2>
+  <ul>
+    <li>把抽象概念（衔尾蛇）转化为可玩的游戏机制</li>
+    <li>Vue 与 Phaser 生命周期的协调</li>
+    <li>玩法规则与渲染解耦的架构实践</li>
+    <li>多端打包（Web / Electron / Capacitor）</li>
+  </ul>
+
+  <h2>项目链接</h2>
+  <p>在线体验：<a href="https://xiuxxx0.github.io/Ouroboros_gamejam/" target="_blank" rel="noopener">圈一圈（Ouroboros）</a></p>
+  <p>源代码：<a href="https://github.com/xiuxxx0/Ouroboros_gamejam" target="_blank" rel="noopener">GitHub</a></p>
+
+  <a class="project-btn" href="../index.html#blog">← 返回博客列表</a>
+</div>
+
+<footer>
+  <p>© 修的个人网站 &nbsp; Built with HTML CSS JavaScript</p>
+</footer>
+</body>
+</html>
