@@ -7,7 +7,6 @@
 ===================== */
 const Theme = (() => {
   const btn = document.getElementById("theme-btn");
-  const tip = document.getElementById("theme-tip");
   const root = document.documentElement;
 
   const STORAGE_KEY = "theme";
@@ -17,25 +16,11 @@ const Theme = (() => {
     return root.classList.contains("dark");
   }
 
-  // 同步提醒气泡文案
-  function setTipText(dark) {
-    if (!tip) return;
-    tip.textContent = dark ? "☀️ 点击这里切换白天模式" : "💡 点击这里切换黑夜模式";
-  }
-
   // 同步开关状态与无障碍属性
   function updateSwitch(dark) {
     if (!btn) return;
     btn.setAttribute("aria-checked", dark ? "true" : "false");
     btn.setAttribute("aria-label", dark ? "切换到白天模式" : "切换到暗夜模式");
-  }
-
-  function showTip() {
-    if (tip) tip.classList.add("show");
-  }
-
-  function hideTip() {
-    if (tip) tip.classList.remove("show");
   }
 
   // 应用主题；save 为 true 时写入 localStorage
@@ -45,7 +30,6 @@ const Theme = (() => {
       try { localStorage.setItem(STORAGE_KEY, dark ? "dark" : "light"); } catch (e) {}
     }
     updateSwitch(dark);
-    setTipText(dark);
   }
 
   function init() {
@@ -62,21 +46,7 @@ const Theme = (() => {
     // 点击切换白天 / 暗夜模式
     btn.addEventListener("click", () => {
       applyTheme(!isDark(), true);
-      hideTip();
     });
-
-    // 首次访问提醒气泡：提示右上角开关可切换主题
-    if (tip && !localStorage.getItem("theme-tip-seen")) {
-      showTip();
-      setTimeout(hideTip, 6000);
-      localStorage.setItem("theme-tip-seen", "1");
-    }
-
-    // 悬停 / 聚焦时显示提醒
-    btn.addEventListener("mouseenter", showTip);
-    btn.addEventListener("mouseleave", hideTip);
-    btn.addEventListener("focus", showTip);
-    btn.addEventListener("blur", hideTip);
   }
 
   return { init };
