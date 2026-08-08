@@ -115,6 +115,24 @@
 	fill: #0684bd; /* #34495e */
 }
 
+/* 看板娘轻微摇摆，让角色更灵动自然 */
+@keyframes waifu-sway {
+	0%, 100% {
+		transform: rotate(-1deg);
+	}
+	50% {
+		transform: rotate(1deg);
+	}
+}
+
+#live2d {
+	transform-origin: 50% 100%;
+}
+
+#live2d canvas {
+	animation: waifu-sway 6s ease-in-out infinite;
+}
+
 @keyframes waifu-shake {
 	2% {
 		transform: translate(.5px, -1.5px) rotate(-.5deg);

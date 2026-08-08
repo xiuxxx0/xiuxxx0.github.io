@@ -50,9 +50,9 @@ function loadExternalResource(url, type) {
     cdnPath: 'https://fastly.jsdelivr.net/gh/fghrsh/live2d_api/',
     cubism2Path: live2d_path + 'live2d.min.js',
     cubism5Path: 'https://cubism.live2d.com/sdk-web/cubismcore/live2dcubismcore.min.js',
-    modelId: 4, // 默认模型：Shizuku，可点击右下角按钮切换模型
+    modelId: 0, // 默认模型：Pio（Potion-Maker 小魔女），可点击按钮切换模型（4=Shizuku）
     tools: ['hitokoto', 'asteroids', 'switch-model', 'switch-texture', 'photo', 'info', 'quit'],
     logLevel: 'warn',
-    drag: true,
+    drag: false, // 固定位置，禁止拖动
   });
 })();
