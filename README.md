@@ -22,13 +22,15 @@
 
 | 项目 | 技术栈 | 链接 |
 |------|--------|------|
-| 🎲 **AI 捕鱼游戏** | JavaScript · Canvas · AI | [详情页](https://xiuxxx0.github.io/projects/ai-fishing) |
-| ☕ **Java 学习项目** | Java · Spring Boot · MySQL | [详情页](https://xiuxxx0.github.io/projects/java-study) |
+| 🐍 **圈一圈（Ouroboros）** | Vue 3 · Phaser · TypeScript | [在线试玩](https://xiuxxx0.github.io/Ouroboros_gamejam/) · [详情页](https://xiuxxx0.github.io/projects/ouroboros-gamejam.html) · [源码](https://github.com/xiuxxx0/Ouroboros_gamejam) |
+| 🎣 **AI 捕鱼游戏** | JavaScript · Canvas · AI | [在线试玩](https://xiuxxx0.github.io/ai-fishing-game/) · [详情页](https://xiuxxx0.github.io/projects/ai-fishing.html) |
+| ☕ **Java 学习项目** | Java · Spring Boot · MySQL | [详情页](https://xiuxxx0.github.io/projects/java-study.html) |
 
 ## 📝 博客
 
 | 文章 | 日期 | 标签 |
 |------|------|------|
+| 圈一圈（Ouroboros）开发记录 | 2026-08-08 | `游戏` |
 | Java 基础学习笔记 | 2026-07-10 | `Java` |
 | AI 捕鱼游戏开发过程 | 2026-07-12 | `AI` |
 | 软件设计师备考记录 | 2026-07-15 | `考试` |
