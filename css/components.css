@@ -121,9 +121,9 @@
 }
 
 .hero-card {
-  max-width: 320px;
+  max-width: 360px;
   margin: 0 auto;
-  padding: 24px;
+  padding: 20px;
   text-align: left;
   border-radius: var(--card-radius);
   background: var(--card-bg);
@@ -142,27 +142,19 @@
 
 .hero-card h3 {
   color: var(--primary);
-  margin-bottom: 15px;
-}
-
-.hero-card-img {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
-  border-radius: 12px;
-  margin-bottom: 16px;
+  margin-bottom: 10px;
 }
 
 /* 精选项目上下排列 */
 .hero-cards {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 22px;
   align-items: center;
 }
 
 .hero-cards .hero-card {
-  width: 320px;
+  width: 360px;
   max-width: 100%;
   margin: 0;
 }
@@ -173,11 +165,11 @@
 
 /* ---- Feature List ---- */
 .feature-list {
-  margin: 20px 0;
+  margin: 12px 0;
 }
 
 .feature-list li {
-  margin: 10px 0;
+  margin: 6px 0;
   color: var(--text-secondary);
 }
 
