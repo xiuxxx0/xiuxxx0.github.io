@@ -19,12 +19,5 @@
     "tag": "AI",
     "desc": "从一个小游戏开始，逐步加入 AI 队友、行为分析与聊天系统的过程记录。",
     "url": "blog/ai-fishing.html"
-  },
-  {
-    "title": "软件设计师备考记录",
-    "date": "2026-07-15",
-    "tag": "考试",
-    "desc": "软件设计师考试的备考计划与知识点整理。",
-    "url": "blog/soft-test.html"
   }
 ]
