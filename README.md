@@ -49,7 +49,6 @@
 ├── 404.html                # 404 页面
 ├── css/                    # 样式表 (8 个模块化文件)
 ├── js/                     # JavaScript (5 个模块)
-├── live2d/                 # 看板娘（Live2D Widget）控件文件
 ├── blog/                   # 博客文章
 ├── projects/               # 项目详情页
 ├── data/                   # JSON 数据 (含自动更新的 GitHub 统计)
