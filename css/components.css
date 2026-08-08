@@ -251,6 +251,15 @@
 
 .github-box h2 {
   margin-bottom: 15px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.github-box h2 svg {
+  width: 26px;
+  height: 26px;
+  fill: currentColor;
 }
 
 .github-contribution {
