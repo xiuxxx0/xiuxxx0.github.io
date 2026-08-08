@@ -41,6 +41,10 @@
     width: 100%;
   }
 
+  .hero-cards {
+    flex-direction: column;
+  }
+
   .projects {
     flex-direction: column;
     align-items: center;

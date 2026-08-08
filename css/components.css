@@ -153,6 +153,19 @@
   margin-bottom: 16px;
 }
 
+/* 精选项目左右并排 */
+.hero-cards {
+  display: flex;
+  gap: 24px;
+  align-items: stretch;
+}
+
+.hero-cards .hero-card {
+  flex: 1;
+  max-width: none;
+  margin: 0;
+}
+
 .status {
   color: var(--success);
 }
