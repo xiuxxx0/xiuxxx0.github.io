@@ -42,11 +42,89 @@
   color: var(--primary);
 }
 
-#theme-btn {
+/* ---- 主题切换滑动开关 ---- */
+.theme-switch {
+  position: relative;
+  width: 56px;
+  height: 28px;
+  padding: 0;
+  margin-left: 14px;
   border: none;
-  background: none;
+  border-radius: 999px;
+  background: #e2e8f0;
+  box-shadow: inset 0 1px 3px rgba(15, 23, 42, 0.15), 0 2px 6px rgba(15, 23, 42, 0.08);
   cursor: pointer;
-  font-size: 22px;
+  flex-shrink: 0;
+  transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.15s ease;
+}
+
+.theme-switch:active {
+  transform: scale(0.92);
+}
+
+.theme-switch:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.theme-track {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+}
+
+.theme-thumb {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 2px 5px rgba(15, 23, 42, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #f59e0b;
+  transition: transform 0.3s ease;
+}
+
+.theme-icon {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.icon-sun {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+.icon-moon {
+  opacity: 0;
+  transform: rotate(-90deg) scale(0.6);
+}
+
+/* 暗夜模式：滑块右移，图标切换为月亮 */
+html.dark .theme-switch {
+  background: #334155;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.35), 0 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+html.dark .theme-thumb {
+  transform: translateX(28px);
+  color: #93c5fd;
+}
+
+html.dark .icon-sun {
+  opacity: 0;
+  transform: rotate(90deg) scale(0.6);
+}
+
+html.dark .icon-moon {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
 }
 
 /* ---- 黑夜模式切换提醒气泡 ---- */
@@ -157,11 +235,11 @@ body::after {
 }
 
 /* 暗色模式下降低浓度，避免刺眼 */
-body.dark::before {
+html.dark body::before {
   background: radial-gradient(circle, rgba(88, 166, 255, 0.12), transparent 70%);
 }
 
-body.dark::after {
+html.dark body::after {
   background: radial-gradient(circle, rgba(163, 113, 247, 0.10), transparent 70%);
 }
 

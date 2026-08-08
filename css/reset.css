@@ -19,6 +19,11 @@ body {
   color: var(--text);
   line-height: 1.6;
   transition: background var(--transition), color var(--transition);
+    }
+
+/* 文字颜色随主题平滑过渡 */
+h1, h2, h3, h4, h5, h6, p, li, a, span {
+  transition: color var(--transition);
 }
 
 a {
