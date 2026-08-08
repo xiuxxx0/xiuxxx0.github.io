@@ -14,17 +14,43 @@
 }
 
 .hero-left h1 {
-  font-size: 45px;
-  margin: 20px 0;
+  font-size: var(--h1-size);
+  margin: 10px 0 8px;
   background: var(--gradient-text);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+  letter-spacing: -0.03em;
 }
 
 .intro {
   font-size: 20px;
   color: var(--text-secondary);
+}
+
+/* ---- Hero 徽章 / 角色行 / 标语 ---- */
+.role-badge {
+  display: inline-block;
+  padding: 6px 14px;
+  margin-bottom: 14px;
+  background: var(--tag-bg);
+  color: var(--tag-color);
+  border-radius: var(--radius-full);
+  font-size: 14px;
+}
+
+.role {
+  font-size: clamp(1.15rem, 2.2vw, 1.45rem);
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 14px;
+}
+
+.tagline {
+  color: var(--text-muted);
+  font-size: 15px;
+  line-height: 1.9;
+  margin-bottom: 10px;
 }
 
 /* ---- Buttons ---- */
@@ -45,6 +71,26 @@
   background: var(--primary-hover);
   transform: translateY(-5px);
   color: white;
+}
+
+.buttons a:focus-visible,
+.project-btn:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+}
+
+.buttons a.btn-secondary {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--nav-border);
+  box-shadow: none;
+}
+
+.buttons a.btn-secondary:hover {
+  background: var(--tag-bg);
+  border-color: var(--primary);
+  color: var(--primary);
+  transform: translateY(-3px);
 }
 
 /* ---- Generic Card ---- */
@@ -75,23 +121,34 @@
 }
 
 .hero-card {
-  padding: 30px;
+  padding: 24px;
   text-align: left;
-  border-radius: var(--radius);
+  border-radius: var(--card-radius);
   background: var(--card-bg);
-  backdrop-filter: blur(15px);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
-  transition: transform var(--transition), background var(--transition),
-    border var(--transition);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: var(--card-border);
+  box-shadow: var(--card-shadow);
+  transition: transform 0.35s ease, box-shadow 0.35s ease,
+    background var(--transition), border var(--transition);
 }
 
 .hero-card:hover {
-  transform: translateY(-10px);
+  transform: translateY(-6px);
+  box-shadow: var(--card-hover-shadow);
 }
 
 .hero-card h3 {
   color: var(--primary);
   margin-bottom: 15px;
+}
+
+.hero-card-img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 16px;
 }
 
 .status {
@@ -113,43 +170,76 @@
   text-align: center;
 }
 
-#projects h2 {
-  margin-bottom: 40px;
-}
-
 .projects {
   display: flex;
   justify-content: center;
-  gap: 25px;
+  gap: 26px;
   flex-wrap: wrap;
 }
 
 .card {
-  width: 300px;
-  padding: 25px;
+  width: 330px;
   display: flex;
   flex-direction: column;
-  min-height: 420px;
+  border-radius: var(--card-radius);
+  overflow: hidden;
+  background: var(--card-bg);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: var(--card-border);
+  box-shadow: var(--card-shadow);
+  transition: transform 0.35s ease, box-shadow 0.35s ease,
+    background var(--transition), border var(--transition);
 }
 
-.card img {
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--card-hover-shadow);
+}
+
+.card-media {
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: var(--card-bg-solid);
+}
+
+.card-media img {
   width: 100%;
-  border-radius: var(--radius-sm);
-  margin-bottom: 15px;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
 }
 
-.card h3 {
+.card:hover .card-media img {
+  transform: scale(1.05);
+}
+
+.card-body {
+  padding: 20px 22px 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.card-body h3 {
+  font-size: 1.15rem;
   margin-bottom: 10px;
 }
 
-.card p {
+.card-body p {
   flex: 1;
   color: var(--text-secondary);
+  margin-bottom: 10px;
+}
+
+.card .project-btn {
+  margin-top: 14px;
 }
 
 /* ---- Blog List ---- */
 #blog {
-  max-width: 850px;
+  max-width: var(--container);
   margin: 0 auto;
   text-align: center;
 }
@@ -162,30 +252,91 @@
 .blog-list {
   display: flex;
   justify-content: center;
-  gap: 25px;
+  gap: 24px;
   flex-wrap: wrap;
 }
 
 .blog-card {
-  padding: 25px;
+  width: 320px;
+  padding: 24px;
   text-align: left;
   display: flex;
   flex-direction: column;
-  min-height: 220px;
+  border-radius: var(--card-radius);
+  transition: transform 0.35s ease, box-shadow 0.35s ease,
+    background var(--transition), border var(--transition);
 }
 
-.blog-card a {
-  margin-top: 15px;
-  font-weight: 600;
+.blog-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--card-hover-shadow);
+}
+
+.blog-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.blog-tag,
+.blog-date {
+  display: inline-block;
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+}
+
+.blog-tag {
+  background: var(--tag-bg);
+  color: var(--tag-color);
+}
+
+.blog-date {
+  background: var(--stats-bg);
+  color: var(--text-muted);
 }
 
 .blog-card h3 {
+  font-size: 1.05rem;
   margin-bottom: 10px;
   color: var(--primary);
 }
 
-.blog-card p {
+.blog-desc {
+  flex: 1;
   color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.blog-card a {
+  margin-top: 14px;
+  font-weight: 600;
+}
+
+/* ---- 区块标题 ---- */
+.section-head {
+  margin-bottom: 46px;
+  text-align: center;
+}
+
+.section-label {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--tag-color);
+  background: var(--tag-bg);
+  padding: 5px 14px;
+  border-radius: var(--radius-full);
+  margin-bottom: 14px;
+}
+
+.section-head h2 {
+  font-size: var(--h2-size);
+  margin: 0;
 }
 
 /* ---- Tags ---- */
@@ -226,10 +377,6 @@
   text-align: center;
 }
 
-#about h2 {
-  margin-bottom: 40px;
-}
-
 .about-box {
   max-width: 700px;
   margin: 0 auto 40px;
@@ -240,6 +387,35 @@
 .about-box p {
   margin: 15px 0;
   font-size: 16px;
+}
+
+.about-role {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 12px;
+}
+
+.about-sub {
+  margin: 24px 0 12px;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.about-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.about-chips span {
+  display: inline-block;
+  padding: 6px 14px;
+  background: var(--tag-bg);
+  color: var(--tag-color);
+  border-radius: var(--radius-full);
+  font-size: 13px;
 }
 
 /* ---- GitHub Box ---- */

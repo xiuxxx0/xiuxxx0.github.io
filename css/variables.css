@@ -31,7 +31,13 @@
   --radius-sm: 15px;
   --radius-full: 30px;
   --transition: 0.3s ease;
-  --font: "Microsoft YaHei", Arial, sans-serif;
+  --font: "Inter", "SF Pro Display", "Segoe UI", "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+  --font-mono: "SF Mono", "JetBrains Mono", Consolas, monospace;
+  --container: 1120px;
+  --section-pad: 110px 24px;
+  --card-radius: 18px;
+  --h1-size: clamp(2.8rem, 6vw, 4.2rem);
+  --h2-size: clamp(1.6rem, 3vw, 2.1rem);
 }
 
 /* 暗色主题 */

@@ -44,21 +44,27 @@
   <section id="home">
     <div class="hero">
       <!-- 左侧个人信息 -->
-      <div class="hero-left">
+      <div class="hero-left reveal">
         <img src="images/avatar.jpg" class="avatar" alt="修的头像" loading="lazy">
+        <span class="role-badge">👋 你好，我是</span>
         <h1>修</h1>
-        <p class="intro">计算机科学与技术专业学生</p>
-        <p>通过项目实践学习软件开发，关注 Java 后端与 AI 应用</p>
+        <p class="role">Computer Science Student</p>
+        <p class="tagline">
+          Building AI Applications<br>
+          Exploring Backend Development<br>
+          Creating Small Games
+        </p>
         <div class="buttons">
-          <a href="https://github.com/xiuxxx0" target="_blank" rel="noopener">访问 GitHub</a>
-          <a href="#projects">查看项目</a>
+          <a class="btn-primary" href="#projects">查看项目</a>
+          <a class="btn-secondary" href="https://github.com/xiuxxx0" target="_blank" rel="noopener">GitHub</a>
         </div>
       </div>
 
       <!-- 右侧精选项目 -->
-      <div class="hero-right">
+      <div class="hero-right reveal">
         <h2>精选项目</h2>
         <div class="hero-card">
+          <img src="images/ouroboros-logo.png" class="hero-card-img" alt="圈一圈（Ouroboros）">
           <h3>🐍 圈一圈（Ouroboros）</h3>
           <p class="status">🏆 2026 BOKE VIBE JAM 一等奖 · 🟢 Online Demo</p>
           <p>以“衔尾蛇”为灵感的动作游戏，控制蛇身形成闭环，在循环中战斗与净化</p>
@@ -76,6 +82,7 @@
           <a class="project-btn" href="projects/ouroboros-gamejam.html">查看详情</a>
         </div>
         <div class="hero-card" style="margin-top:30px;">
+          <img src="images/fishing1.png" class="hero-card-img" alt="AI捕鱼游戏截图">
           <h3>🎣 AI捕鱼游戏</h3>
           <p class="status">🟢 Online Demo</p>
           <p>一款基于HTML5 Canvas 开发的 AI 捕鱼小游戏</p>
@@ -98,29 +105,54 @@
 
   <!-- 项目 -->
   <section id="projects">
-    <h2>全部项目</h2>
+    <div class="section-head reveal">
+      <span class="section-label">Featured Projects</span>
+      <h2>项目展示</h2>
+    </div>
     <div class="projects" id="project-list"></div>
   </section>
 
   <!-- 博客 -->
   <section id="blog">
-    <h2>博客</h2>
-    <p class="blog-intro">记录Java学习、AI项目开发和计算机技术成长过程。</p>
+    <div class="section-head reveal">
+      <span class="section-label">Blog</span>
+      <h2>技术博客</h2>
+    </div>
+    <p class="blog-intro reveal">记录 Java 学习、AI 项目开发和计算机技术成长过程。</p>
     <div class="blog-list" id="blog-list"></div>
   </section>
 
   <!-- 关于我 -->
   <section id="about">
-    <h2>👨‍💻 关于我</h2>
-    <div class="about-box">
-      <p>🎓 江西科技师范大学 计算机科学与技术本科学生</p>
-      <p>💻 当前学习：Java后端开发、Spring Boot、AI应用开发</p>
-      <p>🚀 兴趣方向：游戏开发、人工智能、软件工程</p>
-      <p>📎 正在准备：软件设计师考试</p>
+    <div class="section-head reveal">
+      <span class="section-label">About</span>
+      <h2>关于我</h2>
+    </div>
+    <div class="about-box reveal">
+      <p class="about-role">Computer Science Student</p>
+      <p>🎓 江西科技师范大学 计算机科学与技术专业</p>
+      <p>🚀 通过项目实践学习软件开发，专注 AI 应用与游戏开发，持续积累 Java 后端能力</p>
+
+      <h3 class="about-sub">技术方向</h3>
+      <div class="about-chips">
+        <span>Java Backend</span>
+        <span>AI Application</span>
+        <span>Game Development</span>
+        <span>Web Development</span>
+      </div>
+
+      <h3 class="about-sub">Currently Learning</h3>
+      <div class="about-chips">
+        <span>Java</span>
+        <span>Spring Boot</span>
+        <span>MySQL</span>
+        <span>Redis</span>
+        <span>软件设计师考试</span>
+      </div>
     </div>
 
     <!-- GitHub 数据 -->
-    <div class="github-box">
+    <div class="github-box reveal">
       <h2>
         <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg>
         GitHub
@@ -148,7 +180,7 @@
       </div>
     </div>
 
-    <div class="skills">
+    <div class="skills reveal">
       <span>☕ Java</span>
       <span>🍃 Spring Boot</span>
       <span>🗄 MySQL</span>

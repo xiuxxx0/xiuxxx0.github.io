@@ -48,7 +48,7 @@
 
   .card,
   .blog-card {
-    width: 90%;
+    width: 100%;
   }
 
   .github-stats {
@@ -66,6 +66,11 @@
 }
 
 @media (max-width: 500px) {
+  .navbar {
+    height: 56px;
+    padding: 0 16px;
+  }
+
   .navbar ul {
     display: none;
   }
