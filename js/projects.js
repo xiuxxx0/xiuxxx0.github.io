@@ -11,9 +11,9 @@ const Projects = (() => {
       link: "projects/ai-fishing.html"
     },
     {
-      title: "Ouroboros 衔尾蛇",
+      title: "圈一圈（Ouroboros）",
       image: "images/ouroboros-logo.png",
-      desc: "Vue 3 + Phaser 开发的衔尾蛇生存游戏",
+      desc: "衔尾蛇闭环生存游戏，2026 BOKE VIBE JAM 一等奖",
       tech: ["Vue 3", "Phaser", "TypeScript"],
       link: "projects/ouroboros-gamejam.html"
     },
