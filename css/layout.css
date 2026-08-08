@@ -49,6 +49,41 @@
   font-size: 22px;
 }
 
+/* ---- 黑夜模式切换提醒气泡 ---- */
+#theme-tip {
+  position: fixed;
+  top: 74px;
+  right: 22px;
+  background: #2f3542;
+  color: #fff;
+  padding: 9px 16px;
+  border-radius: 12px;
+  font-size: 13px;
+  line-height: 1.5;
+  box-shadow: 0 5px 16px rgba(0, 0, 0, 0.28);
+  opacity: 0;
+  transform: translateY(-6px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+  z-index: 1001;
+}
+
+#theme-tip::before {
+  content: "";
+  position: absolute;
+  top: -6px;
+  right: 20px;
+  width: 12px;
+  height: 12px;
+  background: inherit;
+  transform: rotate(45deg);
+}
+
+#theme-tip.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* ---- Sections ---- */
 section {
   padding: 100px 20px;
