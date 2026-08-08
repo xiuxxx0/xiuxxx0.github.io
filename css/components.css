@@ -121,69 +121,23 @@
 }
 
 .hero-card {
-  display: flex;
-  gap: 14px;
-  align-items: stretch;
-  max-width: 400px;
-  margin: 0 auto;
-  padding: 20px;
+  padding: 30px;
   text-align: left;
-  border-radius: var(--card-radius);
+  border-radius: var(--radius);
   background: var(--card-bg);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border: var(--card-border);
-  box-shadow: var(--card-shadow);
-  transition: transform 0.35s ease, box-shadow 0.35s ease,
-    background var(--transition), border var(--transition);
+  backdrop-filter: blur(15px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+  transition: transform var(--transition), background var(--transition),
+    border var(--transition);
 }
 
 .hero-card:hover {
-  transform: translateY(-6px);
-  box-shadow: var(--card-hover-shadow);
+  transform: translateY(-10px);
 }
 
 .hero-card h3 {
   color: var(--primary);
-  margin-bottom: 10px;
-}
-
-/* 卡片右侧缩略图 */
-.hero-card-content {
-  flex: 1;
-  min-width: 0;
-}
-
-.hero-card-media {
-  width: 130px;
-  flex-shrink: 0;
-  border-radius: 12px;
-  overflow: hidden;
-}
-
-.hero-card-media img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.hero-card .feature-list {
-  font-size: 13px;
-}
-
-/* 精选项目上下排列 */
-.hero-cards {
-  display: flex;
-  flex-direction: column;
-  gap: 22px;
-  align-items: center;
-}
-
-.hero-cards .hero-card {
-  width: 400px;
-  max-width: 100%;
-  margin: 0;
+  margin-bottom: 15px;
 }
 
 .status {
@@ -192,11 +146,11 @@
 
 /* ---- Feature List ---- */
 .feature-list {
-  margin: 12px 0;
+  margin: 20px 0;
 }
 
 .feature-list li {
-  margin: 6px 0;
+  margin: 10px 0;
   color: var(--text-secondary);
 }
 

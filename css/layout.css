@@ -169,12 +169,12 @@ section {
 }
 
 .hero-left {
-  flex: 1;
+  flex: 0.8;
   text-align: left;
 }
 
 .hero-right {
-  flex: 1;
+  flex: 1.2;
   text-align: center;
 }
 
