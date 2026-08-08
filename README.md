@@ -5,7 +5,6 @@
 <h1 align="center">修的个人网站</h1>
 <p align="center">
   <a href="https://xiuxxx0.github.io"><img src="https://img.shields.io/badge/GitHub_Pages-在线-2563eb?logo=github" /></a>
-  <a href="https://cerulean-dasik-eaca2c.netlify.app"><img src="https://img.shields.io/badge/Netlify-在线-00c7b7?logo=netlify" /></a>
   <img src="data/github-stats.json" style="display:none" />
   <img src="https://img.shields.io/badge/license-MIT-green" />
 </p>
@@ -38,7 +37,7 @@
 ## 🛠 技术栈
 
 - **前端**: HTML5 · CSS3 · Vanilla JavaScript
-- **部署**: GitHub Pages + Netlify
+- **部署**: GitHub Pages
 - **CI/CD**: GitHub Actions 定时同步 GitHub 统计数据
 
 ## 📁 目录结构
@@ -48,7 +47,6 @@
 │   └── update-github-stats.yml
 ├── index.html              # 主页
 ├── 404.html                # 404 页面
-├── netlify.toml            # Netlify 部署配置
 ├── css/                    # 样式表 (8 个模块化文件)
 ├── js/                     # JavaScript (5 个模块)
 ├── blog/                   # 博客文章
@@ -62,13 +60,6 @@
 | 平台 | URL |
 |------|-----|
 | **GitHub Pages** | [xiuxxx0.github.io](https://xiuxxx0.github.io) |
-| **Netlify** | [cerulean-dasik-eaca2c.netlify.app](https://cerulean-dasik-eaca2c.netlify.app) |
-
-Netlify 部署命令：
-
-```bash
-npx netlify-cli deploy --prod --dir "."
-```
 
 ## 🏠 本地运行
 
