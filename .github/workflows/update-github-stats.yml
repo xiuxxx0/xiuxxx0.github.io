@@ -2,7 +2,7 @@ name: Update GitHub Stats
 
 on:
   schedule:
-    # Ã¿Ğ¡Ê±ÔËĞĞÒ»´Î
+    # æ¯å°æ—¶è¿è¡Œä¸€æ¬¡
     - cron: '0 * * * *'
   push:
     branches: [main]
@@ -24,17 +24,17 @@ jobs:
         run: |
           set -eo pipefail
 
-          # »ñÈ¡ÓÃ»§ĞÅÏ¢ (´øÈÏÖ¤£¬±ÜÃâ API ÏŞÁ÷)
+          # è·å–ç”¨æˆ·ä¿¡æ¯ (å¸¦è®¤è¯ï¼Œé¿å… API é™æµ)
           fetch_stats() {
             USER=$(curl -s --retry 3 -H "Authorization: Bearer ${GH_TOKEN}" "https://api.github.com/users/xiuxxx0")
             PUBLIC_REPOS=$(echo "$USER" | jq -r '.public_repos // 0')
             FOLLOWERS=$(echo "$USER" | jq -r '.followers // 0')
 
-            # »ñÈ¡²Ö¿âÁĞ±í²¢¼ÆËã Star ×ÜÊı (´øÈÏÖ¤ + ·ÖÒ³¶µµ×)
+            # è·å–ä»“åº“åˆ—è¡¨å¹¶è®¡ç®— Star æ€»æ•° (å¸¦è®¤è¯ + åˆ†é¡µå…œåº•)
             STARS=$(curl -s --retry 3 -H "Authorization: Bearer ${GH_TOKEN}" "https://api.github.com/users/xiuxxx0/repos?per_page=100" | jq '[.[] | select(.fork == false) | .stargazers_count] | add // 0')
           }
 
-          # À­È¡Ê§°ÜÊ±×î¶àÖØÊÔ 3 ´Î£¬¼ä¸ô 15 Ãë
+          # æ‹‰å–å¤±è´¥æ—¶æœ€å¤šé‡è¯• 3 æ¬¡ï¼Œé—´éš” 15 ç§’
           retry=0
           until fetch_stats; do
             retry=$((retry + 1))
@@ -46,7 +46,7 @@ jobs:
             sleep 15
           done
 
-          # Ğ´Èë JSON ÎÄ¼ş
+          # å†™å…¥ JSON æ–‡ä»¶
           cat > data/github-stats.json << EOF
           {
             "public_repos": ${PUBLIC_REPOS},
@@ -56,15 +56,34 @@ jobs:
           }
           EOF
 
+      - name: Fetch contribution calendar
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -eo pipefail
+          YEAR=$(date -u +%Y)
+          FROM="${YEAR}-01-01T00:00:00Z"
+          TO="${YEAR}-12-31T23:59:59Z"
+          QUERY='query { viewer { contributionsCollection(from: "'"${FROM}"'", to: "'"${TO}"'") { contributionCalendar { totalContributions weeks { contributionDays { date contributionCount } } } } } }'
+          curl -s --retry 3 -H "Authorization: Bearer ${GH_TOKEN}" -H "Content-Type: application/json" \
+            -d "{\"query\": $(printf '%s' "$QUERY" | jq -Rs .)}" \
+            https://api.github.com/graphql > /tmp/contrib.json
+          if jq -e '.errors' /tmp/contrib.json > /dev/null 2>&1; then
+            echo "GraphQL error:" >&2
+            jq '.errors' /tmp/contrib.json >&2
+            exit 1
+          fi
+          jq -c --arg y "$YEAR" '{year: ($y | tonumber), total: .data.viewer.contributionsCollection.contributionCalendar.totalContributions, days: [.data.viewer.contributionsCollection.contributionCalendar.weeks[].contributionDays[] | {d: .date, c: .contributionCount}]}' /tmp/contrib.json > data/contributions.json
+
       - name: Commit and push
         run: |
           set -eo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          # push Ê§°ÜÊ±ÏÈÍ¬²½Ô¶¶ËÔÙÖØÊÔ£¬×î¶à 3 ´Î
+          # push å¤±è´¥æ—¶å…ˆåŒæ­¥è¿œç«¯å†é‡è¯•ï¼Œæœ€å¤š 3 æ¬¡
           push_changes() {
-            git add data/github-stats.json
+            git add data/github-stats.json data/contributions.json
             if ! git diff --cached --quiet; then
               git commit -m "chore: update GitHub stats [skip ci]"
             fi
