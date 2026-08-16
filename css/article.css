@@ -87,6 +87,27 @@
   border-radius: var(--radius-sm);
 }
 
+/* 截图网格（项目实机画面） */
+.shots {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin: 14px 0 6px;
+}
+
+.shots img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-sm);
+  border: var(--card-border);
+}
+
+@media (max-width: 600px) {
+  .shots {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* 404 页面 */
 .error-page {
   text-align: center;

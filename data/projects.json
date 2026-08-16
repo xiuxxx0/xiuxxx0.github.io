@@ -8,14 +8,14 @@
   },
   {
     "title": "Echo ∞ 双生时间线",
-    "image": "images/echo-infinity.png",
+    "image": "images/echo-gameplay-1.jpg",
     "desc": "穿越屏幕中线交换时间环的双时间线射击游戏，上一轮的子弹轨迹会在下一轮回响重现。",
     "tech": ["JavaScript", "Canvas", "Game"],
     "link": "projects/echo-infinity.html"
   },
   {
     "title": "NEON SNAKE 霓虹贪吃蛇",
-    "image": "images/snake-game.png",
+    "image": "images/snake-gameplay-1.jpg",
     "desc": "单文件零依赖的霓虹风贪吃蛇：平滑插值移动、连击倍率、粒子特效与合成音效。",
     "tech": ["JavaScript", "Canvas", "Web Audio"],
     "link": "projects/snake-game.html"
@@ -29,7 +29,7 @@
   },
   {
     "title": "RepoCourse 复盘助手",
-    "image": "images/repocourse.png",
+    "image": "images/repocourse-report.jpg",
     "desc": "AI 时代的项目复盘工具：扫描代码项目，基于多源证据 + LLM 生成技术复盘与学习报告。",
     "tech": ["Python", "LLM", "CLI"],
     "link": "projects/ai-project-reviewer.html"
