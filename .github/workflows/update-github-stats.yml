@@ -57,23 +57,26 @@ jobs:
           EOF
 
       - name: Fetch contribution calendar
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           set -eo pipefail
-          YEAR=$(date -u +%Y)
-          FROM="${YEAR}-01-01T00:00:00Z"
-          TO="${YEAR}-12-31T23:59:59Z"
-          QUERY='query { viewer { contributionsCollection(from: "'"${FROM}"'", to: "'"${TO}"'") { contributionCalendar { totalContributions weeks { contributionDays { date contributionCount } } } } } }'
-          curl -s --retry 3 -H "Authorization: Bearer ${GH_TOKEN}" -H "Content-Type: application/json" \
-            -d "{\"query\": $(printf '%s' "$QUERY" | jq -Rs .)}" \
-            https://api.github.com/graphql > /tmp/contrib.json
-          if jq -e '.errors' /tmp/contrib.json > /dev/null 2>&1; then
-            echo "GraphQL error:" >&2
-            jq '.errors' /tmp/contrib.json >&2
-            exit 1
+          curl -sL --retry 3 "https://github.com/users/xiuxxx0/contributions" -o /tmp/contrib.html
+          if ! grep -q 'data-count' /tmp/contrib.html; then
+            echo "贡献日历抓取失败，跳过本次更新" >&2
+            exit 0
           fi
-          jq -c --arg y "$YEAR" '{year: ($y | tonumber), total: .data.viewer.contributionsCollection.contributionCalendar.totalContributions, days: [.data.viewer.contributionsCollection.contributionCalendar.weeks[].contributionDays[] | {d: .date, c: .contributionCount}]}' /tmp/contrib.json > data/contributions.json
+          python3 - <<'PY'
+import re, json, sys
+html = open('/tmp/contrib.html', encoding='utf-8').read()
+pairs = [(m.group(1), int(m.group(2))) for m in re.finditer(r'data-date="(\d{4}-\d{2}-\d{2})"[^>]*data-count="(\d+)"', html)]
+if not pairs:
+    print('no contribution data found')
+    sys.exit(0)
+year = int(max(d for d, c in pairs)[:4])
+days = [{'d': d, 'c': c} for d, c in pairs if d.startswith(str(year))]
+total = sum(e['c'] for e in days)
+json.dump({'year': year, 'total': total, 'days': days}, open('data/contributions.json', 'w', encoding='utf-8'), ensure_ascii=False)
+print('calendar updated:', len(days), 'days,', total, 'contributions')
+PY
 
       - name: Commit and push
         run: |
