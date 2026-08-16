@@ -7,6 +7,13 @@
     "url": "blog/ai-project-reviewer.html"
   },
   {
+    "title": "DeepSeek Harness 桌面版开发记录",
+    "date": "2026-08-15",
+    "tag": "桌面应用",
+    "desc": "用 WebView2 给 DeepSeek Harness 做一个 Windows 桌面外壳：品牌启动画面、服务自动拉起与生命周期管理。",
+    "url": "blog/deepseek-harness-desktop.html"
+  },
+  {
     "title": "圈一圈（Ouroboros）开发记录",
     "date": "2026-08-08",
     "tag": "游戏",
@@ -26,12 +33,5 @@
     "tag": "AI",
     "desc": "从一个小游戏开始，逐步加入 AI 队友、行为分析与聊天系统的过程记录。",
     "url": "blog/ai-fishing.html"
-  },
-  {
-    "title": "Java基础学习笔记",
-    "date": "2026-07-10",
-    "tag": "Java",
-    "desc": "从 Java 基础语法到面向对象与数据结构的学习笔记。",
-    "url": "blog/java-basic.html"
   }
 ]

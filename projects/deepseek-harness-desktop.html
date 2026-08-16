@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Java 后端学习项目：Java 基础、面向对象、Spring Boot、MySQL 与 Redis 的学习实践。">
+  <meta name="description" content="DeepSeek Harness 桌面版：基于 WebView2 的 Windows 桌面外壳，自动拉起本地服务、品牌启动画面、双击即用。">
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="#2563eb">
   <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0f172a">
-  <title>Java学习项目 - 修的个人网站</title>
-  <link rel="canonical" href="https://xiuxxx0.github.io/projects/java-study.html">
+  <title>DeepSeek Harness 桌面版项目 - 修的个人网站</title>
+  <link rel="canonical" href="https://xiuxxx0.github.io/projects/deepseek-harness-desktop.html">
   <link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
   <script>
     /* 防止主题闪烁：渲染前根据 localStorage / 系统偏好设置暗夜模式 */
@@ -45,38 +45,59 @@
 </nav>
 <main>
 <div class="article">
-    <h1>☕ Java学习项目</h1>
+    <h1>🖥️ DeepSeek Harness 桌面版</h1>
+    <p class="status">🟢 Windows 桌面应用 · v0.1.0</p>
 
     <h2>项目介绍</h2>
-    <p>Java 后端学习项目，涵盖 Java 基础语法、面向对象编程、Spring Boot 框架、MySQL 数据库与 Redis 缓存。通过实际项目练习，掌握企业级后端开发的核心技术。</p>
+    <p>DeepSeek Harness 的 Windows 桌面外壳（Desktop Shell）。基于系统自带的 WebView2 承载 Web UI（<code>http://127.0.0.1:3080</code>），自动拉起并管理本地服务，内置品牌启动画面，双击即用。</p>
 
-    <h2>学习路线</h2>
+    <h2>功能特性</h2>
     <ul>
-      <li>Java 基础语法与面向对象编程</li>
-      <li>集合框架与泛型</li>
-      <li>异常处理与 IO 流</li>
-      <li>多线程基础</li>
-      <li>Spring Boot 框架入门</li>
-      <li>RESTful API 设计与开发</li>
-      <li>MySQL 数据库设计与操作</li>
-      <li>MyBatis / JPA 数据访问</li>
-      <li>Redis 缓存入门</li>
+      <li>🪟 原生桌面窗口承载 DeepSeek Harness Web UI。</li>
+      <li>🎬 品牌启动画面全程显示：浅色背景 + HARNESS 字标 + "Loading plugins..."，与 Web 端启动页视觉一致，无深色闪屏、无白屏闪烁。</li>
+      <li>🚀 服务自动拉起：启动时自动运行 <code>pnpm dsh web</code>，退出时仅结束本外壳启动的服务，不影响其他已运行的服务。</li>
+      <li>🔁 服务已就绪时直接接管页面，不会重复启动。</li>
+      <li>⏱️ 服务 120 秒未就绪时弹出超时提示。</li>
     </ul>
+
+    <h2>运行截图</h2>
+    <div class="shots">
+      <img src="../images/dsh-desktop-app.jpg" alt="DeepSeek Harness 桌面版主界面" loading="lazy" decoding="async">
+      <img src="../images/dsh-desktop-splash.jpg" alt="DeepSeek Harness 桌面版启动画面" loading="lazy" decoding="async">
+    </div>
+
+    <h2>快速使用</h2>
+    <ul>
+      <li>1️⃣ 从 <a href="https://github.com/xiuxxx0/deepseek-harness-desktop/releases" target="_blank" rel="noopener">Releases</a> 下载最新 zip，或直接使用仓库内的 exe。</li>
+      <li>2️⃣ 将 exe 与三个 DLL（<code>Microsoft.Web.WebView2.Core.dll</code>、<code>Microsoft.Web.WebView2.WinForms.dll</code>、<code>WebView2Loader.dll</code>）复制到 DeepSeek Harness 主仓库根目录。</li>
+      <li>3️⃣ 双击运行：先显示品牌启动画面，服务就绪后自动进入界面。</li>
+      <li>4️⃣ （可选）运行 <code>make-desktop-shortcut.ps1</code> 在桌面生成快捷方式。</li>
+    </ul>
+
+    <h2>环境要求</h2>
+    <ul>
+      <li>Windows 10 / 11（系统自带 WebView2 Runtime）</li>
+      <li><a href="https://github.com/deepseek-ai/deepseek-harness" target="_blank" rel="noopener">DeepSeek Harness</a> 主仓库（本外壳需与它放在一起使用）</li>
+      <li>Node.js 与 pnpm（主仓库依赖）</li>
+    </ul>
+
+    <h2>自行编译</h2>
+    <p>使用 Windows 自带的 .NET Framework csc 编译器即可，无需安装其他工具：</p>
+    <pre><code>.\build.ps1</code></pre>
 
     <h2>技术栈</h2>
     <div class="tags">
-      <span>Java</span>
-      <span>Spring Boot</span>
-      <span>MySQL</span>
-      <span>Redis</span>
+      <span>C#</span>
+      <span>WebView2</span>
+      <span>WinForms</span>
+      <span>Windows</span>
     </div>
 
-    <h2>项目目标</h2>
-    <p>通过系统学习 Java 后端技术栈，为后续参与实际企业项目开发打下坚实基础。</p>
-
+    <h2>项目地址</h2>
     <div class="buttons">
-      <a class="btn-secondary" href="../blog/java-basic.html">Java 基础学习笔记</a>
-      <a class="btn-secondary" href="../index.html#projects">← 返回项目列表</a>
+      <a class="btn-primary" href="https://github.com/xiuxxx0/deepseek-harness-desktop" target="_blank" rel="noopener">GitHub 源码</a>
+      <a class="btn-secondary" href="https://github.com/xiuxxx0/deepseek-harness-desktop/releases" target="_blank" rel="noopener">下载 Releases</a>
+      <a class="btn-secondary" href="../blog/deepseek-harness-desktop.html">开发记录</a>
     </div>
   </div>
 </main>

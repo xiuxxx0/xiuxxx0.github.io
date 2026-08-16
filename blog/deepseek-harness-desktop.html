@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="DeepSeek Harness 桌面版开发记录：用 WebView2 给 DeepSeek Harness 做 Windows 桌面外壳，启动画面、服务自动拉起与生命周期管理。">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#2563eb">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0f172a">
+  <title>DeepSeek Harness 桌面版开发记录 - 修的个人网站</title>
+  <link rel="canonical" href="https://xiuxxx0.github.io/blog/deepseek-harness-desktop.html">
+  <link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
+  <script>
+    /* 防止主题闪烁：渲染前根据 localStorage / 系统偏好设置暗夜模式 */
+    (function () {
+      var saved = null;
+      try { saved = localStorage.getItem("theme"); } catch (e) {}
+      var dark = saved ? saved === "dark" : window.matchMedia("(prefers-color-scheme: dark)").matches;
+      if (dark) document.documentElement.classList.add("dark");
+    })();
+  </script>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<nav class="navbar">
+  <a class="logo" href="../index.html">修的个人主页</a>
+  <ul class="nav-menu" id="nav-menu">
+    <li><a href="../index.html#home">首页</a></li>
+    <li><a href="../index.html#projects">项目</a></li>
+    <li><a href="../index.html#blog">博客</a></li>
+    <li><a href="../index.html#about">关于我</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button id="theme-btn" class="theme-switch" role="switch" aria-checked="false" aria-label="切换到暗夜模式" title="切换白天/黑夜模式">
+      <span class="theme-track">
+        <span class="theme-thumb">
+          <svg class="theme-icon icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path></svg>
+          <svg class="theme-icon icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </span>
+      </span>
+    </button>
+    <button class="hamburger" id="hamburger" aria-label="打开菜单" aria-expanded="false" aria-controls="nav-menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<main>
+<div class="article">
+  <h1>🖥️ DeepSeek Harness 桌面版：一个 WebView2 外壳的开发记录</h1>
+  <p class="date">发布时间：2026年8月15日</p>
+  <p class="article-intro">
+    给 DeepSeek Harness 做一个 Windows 桌面外壳——基于系统自带的 WebView2 承载 Web UI，
+    自动拉起本地服务，内置品牌启动画面，双击即用。这篇文章记录整个设计与实现过程。
+  </p>
+
+  <h2>为什么要做桌面版</h2>
+  <p>
+    平时使用 DeepSeek Harness 需要先启动本地服务（<code>pnpm dsh web</code>），
+    再用浏览器打开 <code>127.0.0.1:3080</code>。步骤不多，但每次都要记得端口、
+    手动开终端，用起来总像在「调试」而不是「使用」。
+  </p>
+  <p>
+    所以我想要一个真正的桌面应用：双击图标、看到启动画面、直接进入界面——像普通软件一样。
+  </p>
+
+  <h2>技术选型</h2>
+  <ul>
+    <li>🪟 WebView2：Windows 10 / 11 系统自带 Runtime，无需打包 Chromium，体积小、更新跟系统走。</li>
+    <li>⚙️ C# + WinForms：用系统自带的 .NET Framework csc 就能编译，不需要装 IDE 或额外工具。</li>
+    <li>🔗 复用官方 Web UI：核心能力、插件系统和界面全部来自 <a href="https://github.com/deepseek-ai/deepseek-harness" target="_blank" rel="noopener">deepseek-ai/deepseek-harness</a>，外壳只负责桌面集成。</li>
+  </ul>
+
+  <h2>启动画面</h2>
+  <p>
+    桌面应用的「第一印象」很重要。启动画面做成了浅色背景 + HARNESS 字标 +
+    "Loading plugins..."，与 Web 端启动页视觉一致——从双击到进入界面，全程没有深色闪屏和白屏闪烁。
+  </p>
+
+  <h2>服务生命周期管理</h2>
+  <p>外壳需要和本地服务配合，这里处理了几个细节：</p>
+  <ul>
+    <li>🚀 启动时自动运行 <code>pnpm dsh web</code>。</li>
+    <li>🔁 如果服务已经就绪（比如用户自己起的），直接接管页面，不重复启动。</li>
+    <li>⏱️ 服务 120 秒未就绪时弹出超时提示，而不是无限等待。</li>
+    <li>🛑 退出时只结束本外壳启动的服务，不影响其他已经运行的服务。</li>
+  </ul>
+
+  <h2>使用与打包</h2>
+  <p>
+    使用上保持简单：从 Releases 下载 zip，把 exe 和三个 DLL 复制到主仓库根目录，双击即可；
+    还可以运行 <code>make-desktop-shortcut.ps1</code> 一键生成桌面快捷方式。
+    编译则只需一条 <code>.\build.ps1</code>。
+  </p>
+
+  <h2>运行截图</h2>
+  <div class="shots">
+    <img src="../images/dsh-desktop-app.jpg" alt="DeepSeek Harness 桌面版主界面" loading="lazy" decoding="async">
+    <img src="../images/dsh-desktop-splash.jpg" alt="DeepSeek Harness 桌面版启动画面" loading="lazy" decoding="async">
+  </div>
+
+  <h2>开发收获</h2>
+  <ul>
+    <li>Windows 桌面集成：WebView2 窗口、进程生命周期管理、桌面快捷方式。</li>
+    <li>「应用感」来自细节：启动画面、无闪屏、超时兜底，都是用户体验的一部分。</li>
+    <li>用最小依赖完成目标：不引入 Electron，只靠系统自带能力。</li>
+  </ul>
+
+  <div class="buttons">
+    <a class="btn-primary" href="../projects/deepseek-harness-desktop.html">查看项目详情</a>
+    <a class="btn-secondary" href="https://github.com/xiuxxx0/deepseek-harness-desktop" target="_blank" rel="noopener">GitHub 源码</a>
+    <a class="btn-secondary" href="../index.html#blog">← 返回博客列表</a>
+  </div>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="footer-logo">修的个人主页</span>
+      <p>Java 后端 · AI 应用 · 游戏开发 — 记录学习与成长</p>
+    </div>
+    <div class="footer-links">
+      <a href="../index.html#home">首页</a>
+      <a href="../index.html#projects">项目</a>
+      <a href="../index.html#blog">博客</a>
+      <a href="../index.html#about">关于我</a>
+      <a href="https://github.com/xiuxxx0" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+  <p class="footer-copy">© 2026 修的个人网站 · Built with HTML CSS JavaScript</p>
+</footer>
+
+<button class="back-to-top" id="back-to-top" aria-label="回到顶部">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"></path></svg>
+</button>
+<script src="../js/theme.js"></script>
+<script src="../js/nav.js"></script>
+</body>
+</html>

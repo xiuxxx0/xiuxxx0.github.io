@@ -35,17 +35,17 @@
 | 🐍 **NEON SNAKE 霓虹贪吃蛇** | JavaScript · Canvas · Web Audio | [在线试玩](https://xiuxxx0.github.io/snake-game/) · [详情页](https://xiuxxx0.github.io/projects/snake-game.html) · [源码](https://github.com/xiuxxx0/snake-game) |
 | 🎣 **AI 捕鱼游戏** | JavaScript · Canvas · AI | [在线试玩](https://xiuxxx0.github.io/ai-fishing-game/) · [详情页](https://xiuxxx0.github.io/projects/ai-fishing.html) |
 | 🤖 **RepoCourse 复盘助手** | Python · LLM · CLI | [详情页](https://xiuxxx0.github.io/projects/ai-project-reviewer.html) · [源码](https://github.com/xiuxxx0/ai-project-reviewer) |
-| ☕ **Java 学习项目** | Java · Spring Boot · MySQL | [详情页](https://xiuxxx0.github.io/projects/java-study.html) |
+| 🖥️ **DeepSeek Harness 桌面版** | C# · WebView2 · Windows | [详情页](https://xiuxxx0.github.io/projects/deepseek-harness-desktop.html) · [源码](https://github.com/xiuxxx0/deepseek-harness-desktop) |
 
 ## 📝 博客
 
 | 文章 | 日期 | 标签 |
 |------|------|------|
 | RepoCourse：AI 时代的项目复盘助手 | 2026-08-16 | `AI` |
+| DeepSeek Harness 桌面版开发记录 | 2026-08-15 | `桌面应用` |
 | 圈一圈（Ouroboros）开发记录 | 2026-08-08 | `游戏` |
 | 软件设计师备考记录 | 2026-07-15 | `考证` |
 | AI 捕鱼游戏开发过程 | 2026-07-12 | `AI` |
-| Java 基础学习笔记 | 2026-07-10 | `Java` |
 
 ## 🛠 技术栈
 

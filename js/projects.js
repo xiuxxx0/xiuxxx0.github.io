@@ -40,11 +40,11 @@ const Projects = (() => {
       link: "projects/ai-project-reviewer.html"
     },
     {
-      title: "Java学习项目",
-      image: "images/avatar.jpg",
-      desc: "记录从 Java 基础到后端开发的学习过程：面向对象、数据结构与项目实践。",
-      tech: ["Java", "Spring Boot", "MySQL", "Redis"],
-      link: "projects/java-study.html"
+      title: "DeepSeek Harness 桌面版",
+      image: "images/dsh-desktop-app.jpg",
+      desc: "基于 WebView2 的 Windows 桌面外壳：自动拉起本地服务、品牌启动画面、双击即用。",
+      tech: ["C#", "WebView2", "Windows"],
+      link: "projects/deepseek-harness-desktop.html"
     }
   ];
 
