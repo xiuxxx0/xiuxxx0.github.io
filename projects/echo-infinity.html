@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="AI捕鱼游戏：基于 HTML5 Canvas 的捕鱼小游戏，包含 AI 队友、玩家行为分析与 AI 聊天系统。">
+  <meta name="description" content="Echo ∞：穿越屏幕中线、交换时间环的双时间线射击游戏，子弹轨迹跨轮回响。">
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="#2563eb">
   <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0f172a">
-  <title>AI捕鱼游戏项目 - 修的个人网站</title>
-  <link rel="canonical" href="https://xiuxxx0.github.io/projects/ai-fishing.html">
+  <title>Echo ∞ 双生时间线游戏项目 - 修的个人网站</title>
+  <link rel="canonical" href="https://xiuxxx0.github.io/projects/echo-infinity.html">
   <link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
   <script>
     /* 防止主题闪烁：渲染前根据 localStorage / 系统偏好设置暗夜模式 */
@@ -45,49 +45,50 @@
 </nav>
 <main>
 <div class="article">
-    <h1>🎣 AI捕鱼游戏</h1>
-    <p class="status">🟢 Online Demo</p>
+    <h1>♾️ Echo ∞：双生时间线</h1>
+    <p class="status">🟢 Online Demo · 双时间线射击游戏</p>
 
     <h2>项目介绍</h2>
-    <p>这是一个基于 HTML5 Canvas 开发的 AI 捕鱼小游戏。玩家控制炮台攻击不同鱼类，并加入 AI 队友、玩家行为分析以及 AI 互动聊天系统。</p>
+    <p>《Echo ∞》是一款双生时间线 HTML5 Canvas 射击游戏。玩家控制机器人穿越屏幕中线，在左右两个时间环之间切换；上一轮的子弹轨迹会以「回响子弹」的形式在下一轮重现，与当前轮的自己并肩作战。</p>
 
-    <h2>项目背景</h2>
-    <p>学习计算机过程中，我希望通过实际项目理解软件开发。因此尝试独立开发一个小游戏，并在基础玩法上加入 AI 功能，探索人工智能与游戏结合的可能。</p>
+    <h2>核心机制</h2>
+    <ul>
+      <li>⏳ 双生时间线：世界坐标统一记录在右环，进入左环时水平镜像，穿越中线即交换时间环。</li>
+      <li>🔫 回响子弹：当前轮子弹持续回写生存时长，形成下一轮的完整轨迹记录，回响子弹带蓝色拖尾。</li>
+      <li>👾 ∞ 交点 Boss：Boss 固定在 ∞ 交点，迫使左右时间环同时向中心开火。</li>
+      <li>📐 可学习的敌人：每一轮使用同一随机序列，敌人的出生边缘、位置与速度可以被学习。</li>
+      <li>✨ 时间线视觉：断裂波纹、故障撕裂、网格扫描与顶部时间轴，直观提示距离重置的时间。</li>
+    </ul>
+
+    <h2>操作说明</h2>
+    <ul>
+      <li>⌨️ WASD：移动。</li>
+      <li>🖱️ 鼠标：瞄准与射击。</li>
+      <li>🔄 穿越屏幕中线：交换时间环。</li>
+    </ul>
+
+    <h2>技术亮点</h2>
+    <ul>
+      <li>固定世界尺寸（960×540），Canvas 按窗口自适应缩放显示。</li>
+      <li>子弹用一帧内的飞行线段检测碰撞，避免高速子弹直接穿过目标。</li>
+      <li>斜向移动归一化，保证各方向速度一致；窗口失焦自动清空输入。</li>
+      <li>画面震动只影响游戏世界，准星与 UI 保持稳定可读。</li>
+    </ul>
 
     <h2>技术栈</h2>
     <div class="tags">
       <span>JavaScript</span>
-      <span>Canvas</span>
-      <span>AI</span>
+      <span>HTML5 Canvas</span>
       <span>GitHub Pages</span>
     </div>
 
-    <h2>核心功能</h2>
-    <ul>
-      <li>🤖 AI队友系统：自动分析游戏情况，帮助玩家攻击目标。</li>
-      <li>🐟 鱼类系统：设计不同速度、大小和分值的鱼类，以及 Boss 挑战。</li>
-      <li>📊 玩家行为分析：根据玩家操作调整 AI 行为。</li>
-      <li>💬 AI聊天互动：增加游戏过程中的反馈和角色互动。</li>
-    </ul>
-
-    <h2>项目截图</h2>
-    <img src="../images/fishing1.jpg" alt="AI捕鱼游戏截图 1" style="width:100%;border-radius:15px;" loading="lazy" decoding="async">
-    <img src="../images/fishing2.jpg" alt="AI捕鱼游戏截图 2" style="width:100%;margin-top:20px;border-radius:15px;" loading="lazy" decoding="async">
-
-    <h2>开发收获</h2>
-    <p>通过这个项目，我学习了：</p>
-    <ul>
-      <li>JavaScript 游戏逻辑设计</li>
-      <li>Canvas 动画开发</li>
-      <li>碰撞检测与状态管理</li>
-      <li>AI 功能在实际项目中的应用</li>
-    </ul>
+    <h2>在线试玩</h2>
+    <iframe src="https://xiuxxx0.github.io/echo-infinity-game/" style="width:100%;height:560px;border:none;border-radius:15px;background:#0f172a;" loading="lazy" allow="autoplay; fullscreen" title="Echo ∞ 在线试玩"></iframe>
 
     <h2>项目地址</h2>
     <div class="buttons">
-      <a class="btn-primary" href="https://xiuxxx0.github.io/ai-fishing-game/" target="_blank" rel="noopener">在线体验</a>
-      <a class="btn-secondary" href="https://github.com/xiuxxx0/ai-fishing-game" target="_blank" rel="noopener">GitHub 源码</a>
-      <a class="btn-secondary" href="../blog/ai-fishing.html">开发记录</a>
+      <a class="btn-primary" href="https://xiuxxx0.github.io/echo-infinity-game/" target="_blank" rel="noopener">在线体验</a>
+      <a class="btn-secondary" href="https://github.com/xiuxxx0/echo-infinity-game" target="_blank" rel="noopener">GitHub 源码</a>
     </div>
   </div>
 </main>

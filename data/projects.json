@@ -1,37 +1,44 @@
-﻿[
+[
   {
-    "title":"圈一圈（Ouroboros）",
-    "image":"images/ouroboros-logo.png",
-    "desc":"一个围绕「无限循环」设计的生存类游戏：控制蛇身闭合形成圆环，将敌人困在环内消灭。",
-    "tech":[
-      "Vue 3",
-      "Phaser",
-      "TypeScript"
-    ],
-    "link":"projects/ouroboros-gamejam.html"
+    "title": "圈一圈（Ouroboros）",
+    "image": "images/ouroboros-logo.png",
+    "desc": "一个围绕「无限循环」设计的生存类游戏：控制蛇身闭合形成圆环，将敌人困在环内消灭。",
+    "tech": ["Vue 3", "Phaser", "TypeScript"],
+    "link": "projects/ouroboros-gamejam.html"
   },
   {
-    "title":"AI捕鱼游戏",
-    "image":"images/fishing1.png",
-    "desc":"一个基于 HTML5 Canvas 开发的 AI 驱动捕鱼游戏，包含 AI 队友与玩家行为分析。",
-    "tech":[
-      "JavaScript",
-      "Canvas",
-      "AI Behavior"
-    ],
-    "link":"projects/ai-fishing.html"
+    "title": "Echo ∞ 双生时间线",
+    "image": "images/echo-infinity.png",
+    "desc": "穿越屏幕中线交换时间环的双时间线射击游戏，上一轮的子弹轨迹会在下一轮回响重现。",
+    "tech": ["JavaScript", "Canvas", "Game"],
+    "link": "projects/echo-infinity.html"
   },
   {
-    "title":"Java学习项目",
-    "image":"images/avatar.jpg",
-    "desc":"记录从 Java 基础到后端开发的学习过程：面向对象、数据结构与项目实践。",
-    "tech":[
-      "Java",
-      "Spring Boot",
-      "MySQL",
-      "Redis"
-    ],
-    "link":"projects/java-study.html"
+    "title": "NEON SNAKE 霓虹贪吃蛇",
+    "image": "images/snake-game.png",
+    "desc": "单文件零依赖的霓虹风贪吃蛇：平滑插值移动、连击倍率、粒子特效与合成音效。",
+    "tech": ["JavaScript", "Canvas", "Web Audio"],
+    "link": "projects/snake-game.html"
+  },
+  {
+    "title": "AI捕鱼游戏",
+    "image": "images/fishing1.jpg",
+    "desc": "一个基于 HTML5 Canvas 开发的 AI 驱动捕鱼游戏，包含 AI 队友与玩家行为分析。",
+    "tech": ["JavaScript", "Canvas", "AI Behavior"],
+    "link": "projects/ai-fishing.html"
+  },
+  {
+    "title": "RepoCourse 复盘助手",
+    "image": "images/repocourse.png",
+    "desc": "AI 时代的项目复盘工具：扫描代码项目，基于多源证据 + LLM 生成技术复盘与学习报告。",
+    "tech": ["Python", "LLM", "CLI"],
+    "link": "projects/ai-project-reviewer.html"
+  },
+  {
+    "title": "Java学习项目",
+    "image": "images/avatar.jpg",
+    "desc": "记录从 Java 基础到后端开发的学习过程：面向对象、数据结构与项目实践。",
+    "tech": ["Java", "Spring Boot", "MySQL", "Redis"],
+    "link": "projects/java-study.html"
   }
-
 ]

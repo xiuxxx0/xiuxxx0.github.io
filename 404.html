@@ -1,38 +1,76 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="页面未找到">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#2563eb">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0f172a">
   <title>404 - 页面未找到 | 修的个人网站</title>
+  <link rel="canonical" href="https://xiuxxx0.github.io/404.html">
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <script>
+    /* 防止主题闪烁：渲染前根据 localStorage / 系统偏好设置暗夜模式 */
+    (function () {
+      var saved = null;
+      try { saved = localStorage.getItem("theme"); } catch (e) {}
+      var dark = saved ? saved === "dark" : window.matchMedia("(prefers-color-scheme: dark)").matches;
+      if (dark) document.documentElement.classList.add("dark");
+    })();
+  </script>
   <link rel="stylesheet" href="css/style.css">
-  <style>
-    .error-page {
-      text-align: center;
-      padding: 150px 20px;
-    }
-    .error-page h1 { font-size: 80px; color: var(--primary); }
-    .error-page p { font-size: 20px; color: var(--text-secondary); margin: 20px 0 40px; }
-  </style>
 </head>
 <body>
 <nav class="navbar">
-  <div class="logo">修的个人主页</div>
-  <ul>
-    <li><a href="index.html">首页</a></li>
+  <a class="logo" href="index.html">修的个人主页</a>
+  <ul class="nav-menu" id="nav-menu">
+    <li><a href="index.html#home">首页</a></li>
     <li><a href="index.html#projects">项目</a></li>
     <li><a href="index.html#blog">博客</a></li>
     <li><a href="index.html#about">关于我</a></li>
   </ul>
+  <div class="nav-actions">
+    <button id="theme-btn" class="theme-switch" role="switch" aria-checked="false" aria-label="切换到暗夜模式" title="切换白天/黑夜模式">
+      <span class="theme-track">
+        <span class="theme-thumb">
+          <svg class="theme-icon icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path></svg>
+          <svg class="theme-icon icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </span>
+      </span>
+    </button>
+    <button class="hamburger" id="hamburger" aria-label="打开菜单" aria-expanded="false" aria-controls="nav-menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
 </nav>
-
+<main>
 <div class="error-page">
   <h1>404</h1>
   <p>😿 页面不存在或已被移除</p>
   <a class="project-btn" href="index.html">返回首页</a>
 </div>
-
-<footer>
-  <p>© 修的个人网站 &nbsp; Built with HTML CSS JavaScript</p>
+</main>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="footer-logo">修的个人主页</span>
+      <p>Java 后端 · AI 应用 · 游戏开发 — 记录学习与成长</p>
+    </div>
+    <div class="footer-links">
+      <a href="index.html#home">首页</a>
+      <a href="index.html#projects">项目</a>
+      <a href="index.html#blog">博客</a>
+      <a href="index.html#about">关于我</a>
+      <a href="https://github.com/xiuxxx0" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+  <p class="footer-copy">© 2026 修的个人网站 · Built with HTML CSS JavaScript</p>
 </footer>
+
+<button class="back-to-top" id="back-to-top" aria-label="回到顶部">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"></path></svg>
+</button>
+<script src="js/theme.js"></script>
+<script src="js/nav.js"></script>
 </body>
 </html>

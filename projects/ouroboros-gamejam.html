@@ -3,18 +3,48 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Ouroboros 衔尾蛇生存游戏项目">
+  <meta name="description" content="圈一圈（Ouroboros）：2026 BOKE VIBE JAM 一等奖作品，以衔尾蛇为灵感的闭环生存动作游戏。">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#2563eb">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0f172a">
   <title>Ouroboros 衔尾蛇游戏项目 - 修的个人网站</title>
+  <link rel="canonical" href="https://xiuxxx0.github.io/projects/ouroboros-gamejam.html">
+  <link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
+  <script>
+    /* 防止主题闪烁：渲染前根据 localStorage / 系统偏好设置暗夜模式 */
+    (function () {
+      var saved = null;
+      try { saved = localStorage.getItem("theme"); } catch (e) {}
+      var dark = saved ? saved === "dark" : window.matchMedia("(prefers-color-scheme: dark)").matches;
+      if (dark) document.documentElement.classList.add("dark");
+    })();
+  </script>
   <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
 <nav class="navbar">
-  <div class="logo">修的个人主页</div>
-  <a href="../index.html">返回首页</a>
+  <a class="logo" href="../index.html">修的个人主页</a>
+  <ul class="nav-menu" id="nav-menu">
+    <li><a href="../index.html#home">首页</a></li>
+    <li><a href="../index.html#projects">项目</a></li>
+    <li><a href="../index.html#blog">博客</a></li>
+    <li><a href="../index.html#about">关于我</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button id="theme-btn" class="theme-switch" role="switch" aria-checked="false" aria-label="切换到暗夜模式" title="切换白天/黑夜模式">
+      <span class="theme-track">
+        <span class="theme-thumb">
+          <svg class="theme-icon icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path></svg>
+          <svg class="theme-icon icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </span>
+      </span>
+    </button>
+    <button class="hamburger" id="hamburger" aria-label="打开菜单" aria-expanded="false" aria-controls="nav-menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
 </nav>
-
 <main>
-  <div class="article">
+<div class="article">
     <h1>🐍 圈一圈（Ouroboros）</h1>
     <p class="status">🏆 2026 BOKE VIBE JAM 一等奖 · 🟢 Online Demo</p>
 
@@ -45,7 +75,7 @@
     </ul>
 
     <h2>在线试玩</h2>
-    <iframe src="https://xiuxxx0.github.io/Ouroboros_gamejam/" style="width:100%;height:640px;border:none;border-radius:15px;background:#000;" loading="lazy" allow="autoplay; fullscreen"></iframe>
+    <iframe src="https://xiuxxx0.github.io/Ouroboros_gamejam/" style="width:100%;height:640px;border:none;border-radius:15px;background:#000;" loading="lazy" allow="autoplay; fullscreen" title="圈一圈（Ouroboros）在线试玩"></iframe>
 
     <h2>操作说明</h2>
     <ul>
@@ -56,9 +86,34 @@
     </ul>
 
     <h2>项目地址</h2>
-    <a class="project-btn" href="https://xiuxxx0.github.io/Ouroboros_gamejam/" target="_blank" rel="noopener">在线体验</a>
-    <a class="project-btn" href="https://github.com/xiuxxx0/Ouroboros_gamejam" target="_blank" rel="noopener" style="margin-left:10px;">GitHub源码</a>
+    <div class="buttons">
+      <a class="btn-primary" href="https://xiuxxx0.github.io/Ouroboros_gamejam/" target="_blank" rel="noopener">在线体验</a>
+      <a class="btn-secondary" href="https://github.com/xiuxxx0/Ouroboros_gamejam" target="_blank" rel="noopener">GitHub 源码</a>
+      <a class="btn-secondary" href="../blog/ouroboros.html">开发记录</a>
+    </div>
   </div>
 </main>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="footer-logo">修的个人主页</span>
+      <p>Java 后端 · AI 应用 · 游戏开发 — 记录学习与成长</p>
+    </div>
+    <div class="footer-links">
+      <a href="../index.html#home">首页</a>
+      <a href="../index.html#projects">项目</a>
+      <a href="../index.html#blog">博客</a>
+      <a href="../index.html#about">关于我</a>
+      <a href="https://github.com/xiuxxx0" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+  <p class="footer-copy">© 2026 修的个人网站 · Built with HTML CSS JavaScript</p>
+</footer>
+
+<button class="back-to-top" id="back-to-top" aria-label="回到顶部">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"></path></svg>
+</button>
+<script src="../js/theme.js"></script>
+<script src="../js/nav.js"></script>
 </body>
 </html>

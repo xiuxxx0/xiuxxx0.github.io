@@ -32,8 +32,11 @@ const Theme = (() => {
     updateSwitch(dark);
   }
 
+  let inited = false;
+
   function init() {
-    if (!btn) return;
+    if (inited || !btn) return;
+    inited = true;
 
     // 初始主题：localStorage 优先，否则跟随系统偏好
     let saved = null;
@@ -51,3 +54,10 @@ const Theme = (() => {
 
   return { init };
 })();
+
+/* 子页面没有 main.js，这里自动初始化（init 有幂等保护） */
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", () => Theme.init());
+} else {
+  Theme.init();
+}

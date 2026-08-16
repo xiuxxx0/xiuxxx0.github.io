@@ -1,12 +1,32 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="修的个人主页，记录Java后端、AI项目开发和计算机学习过程">
-  <meta name="theme-color" content="#2563eb">
-  <title>修的个人网站</title>
-  <link rel="icon" href="data:,">
+  <meta name="description" content="修的个人网站：记录 Java 后端学习、AI 应用开发与游戏项目实践。江西科技师范大学计算机科学与技术专业学生。">
+  <meta name="keywords" content="修,个人主页,Java后端,AI应用,游戏开发,Spring Boot,博客">
+  <meta name="author" content="修">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#2563eb">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0f172a">
+  <title>修的个人网站 · Java 后端 / AI 应用 / 游戏开发</title>
+
+  <!-- Open Graph / 社交分享 -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="修的个人网站">
+  <meta property="og:description" content="Java 后端 · AI 应用 · 游戏开发 — 记录学习与成长">
+  <meta property="og:url" content="https://xiuxxx0.github.io/">
+  <meta property="og:image" content="https://xiuxxx0.github.io/images/og-cover.png">
+  <meta property="og:site_name" content="修的个人网站">
+  <meta property="og:locale" content="zh_CN">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="修的个人网站">
+  <meta name="twitter:description" content="Java 后端 · AI 应用 · 游戏开发 — 记录学习与成长">
+  <meta name="twitter:image" content="https://xiuxxx0.github.io/images/og-cover.png">
+
+  <link rel="canonical" href="https://xiuxxx0.github.io/">
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <link rel="preload" as="image" href="images/avatar.jpg">
+
   <script>
     /* 防止主题闪烁：在页面渲染前根据 localStorage / 系统偏好设置暗夜模式 */
     (function () {
@@ -22,21 +42,26 @@
 
 <!-- 导航栏 -->
 <nav class="navbar">
-  <div class="logo">修的个人主页</div>
-  <ul>
+  <a class="logo" href="#home">修的个人主页</a>
+  <ul class="nav-menu" id="nav-menu">
     <li><a href="#home">首页</a></li>
     <li><a href="#projects">项目</a></li>
     <li><a href="#blog">博客</a></li>
     <li><a href="#about">关于我</a></li>
   </ul>
-  <button id="theme-btn" class="theme-switch" role="switch" aria-checked="false" aria-label="切换到暗夜模式" title="切换白天/黑夜模式">
-    <span class="theme-track">
-      <span class="theme-thumb">
-        <svg class="theme-icon icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path></svg>
-        <svg class="theme-icon icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+  <div class="nav-actions">
+    <button id="theme-btn" class="theme-switch" role="switch" aria-checked="false" aria-label="切换到暗夜模式" title="切换白天/黑夜模式">
+      <span class="theme-track">
+        <span class="theme-thumb">
+          <svg class="theme-icon icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path></svg>
+          <svg class="theme-icon icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </span>
       </span>
-    </span>
-  </button>
+    </button>
+    <button class="hamburger" id="hamburger" aria-label="打开菜单" aria-expanded="false" aria-controls="nav-menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
 </nav>
 
 <main>
@@ -45,13 +70,19 @@
     <div class="hero">
       <!-- 左侧个人信息 -->
       <div class="hero-left reveal">
-        <img src="images/avatar.jpg" class="avatar" alt="修的头像" loading="lazy">
+        <img src="images/avatar.jpg" class="avatar" alt="修的头像" fetchpriority="high" decoding="async" width="160" height="160">
         <span class="role-badge">👋 你好，我是</span>
         <h1>修</h1>
         <p class="role">计算机科学与技术专业学生</p>
-        <p class="tagline">AI 应用 · 后端开发 · 项目实践</p>
+        <p class="tagline">AI 应用 · 后端开发 · 游戏开发 · 项目实践</p>
+        <div class="hero-chips">
+          <span class="hero-chip">📍 江西 · 南昌</span>
+          <span class="hero-chip">🎓 江西科技师范大学</span>
+          <span class="hero-chip">☕ 正在学习 Java 后端</span>
+        </div>
         <div class="buttons">
           <a class="btn-primary" href="#projects">查看项目</a>
+          <a class="btn-secondary" href="#blog">阅读博客</a>
           <a class="btn-secondary" href="https://github.com/xiuxxx0" target="_blank" rel="noopener">GitHub</a>
         </div>
       </div>
@@ -74,24 +105,30 @@
             <span>Phaser</span>
             <span>TypeScript</span>
           </div>
-          <a class="project-btn" href="projects/ouroboros-gamejam.html">查看详情</a>
+          <div class="buttons">
+            <a class="btn-primary btn-sm" href="projects/ouroboros-gamejam.html">查看详情</a>
+            <a class="btn-secondary btn-sm" href="https://xiuxxx0.github.io/Ouroboros_gamejam/" target="_blank" rel="noopener">在线试玩</a>
+          </div>
         </div>
         <div class="hero-card" style="margin-top:30px;">
-          <h3>🎣 AI捕鱼游戏</h3>
+          <h3>♾️ Echo ∞ 双生时间线</h3>
           <p class="status">🟢 Online Demo</p>
-          <p>一款基于HTML5 Canvas 开发的 AI 捕鱼小游戏</p>
+          <p>穿越屏幕中线、交换时间环的双时间线射击游戏，子弹轨迹跨轮回响</p>
           <ul class="feature-list">
-            <li>🤖 AI队友自动辅助玩家</li>
-            <li>📊 玩家行为分析系统</li>
-            <li>🐟 多种鱼类和Boss挑战</li>
-            <li>💬 AI互动聊天系统</li>
+            <li>⏳ 双时间线：轨迹跨轮回放</li>
+            <li>👾 Boss 镇守 ∞ 交点</li>
+            <li>📐 可学习的敌人规律</li>
+            <li>✨ 时间线断裂与故障视觉</li>
           </ul>
           <div class="tags">
             <span>JavaScript</span>
             <span>Canvas</span>
-            <span>AI</span>
+            <span>Game</span>
           </div>
-          <a class="project-btn" href="projects/ai-fishing.html">查看详情</a>
+          <div class="buttons">
+            <a class="btn-primary btn-sm" href="projects/echo-infinity.html">查看详情</a>
+            <a class="btn-secondary btn-sm" href="https://xiuxxx0.github.io/echo-infinity-game/" target="_blank" rel="noopener">在线试玩</a>
+          </div>
         </div>
       </div>
     </div>
@@ -102,6 +139,7 @@
     <div class="section-head reveal">
       <span class="section-label">Featured Projects</span>
       <h2>项目展示</h2>
+      <p class="blog-intro">从游戏开发到 AI 工具，每一个项目都是一次完整的学习实践。</p>
     </div>
     <div class="projects" id="project-list"></div>
   </section>
@@ -133,6 +171,7 @@
         <span>AI Application</span>
         <span>Game Development</span>
         <span>Web Development</span>
+        <span>LLM Tools</span>
       </div>
 
       <h3 class="about-sub">正在学习</h3>
@@ -153,12 +192,12 @@
       </h2>
       <div class="github-contribution">
         <h3>GitHub Contributions</h3>
-        <img src="https://ghchart.rshah.org/xiuxxx0" alt="GitHub Contribution Chart" loading="lazy">
+        <img id="gh-chart" src="https://ghchart.rshah.org/xiuxxx0" alt="GitHub 贡献图" loading="lazy" decoding="async">
       </div>
       <div class="github-stats">
         <div>
           <h3 id="repo-count">0</h3>
-          <p>项目作品</p>
+          <p>开源仓库</p>
         </div>
         <div>
           <h3 id="star-count">0</h3>
@@ -169,8 +208,9 @@
           <p>Followers</p>
         </div>
       </div>
+      <p class="stats-updated" id="stats-updated"></p>
       <div class="github-link">
-        <a href="https://github.com/xiuxxx0" target="_blank" rel="noopener">访问 GitHub</a>
+        <a href="https://github.com/xiuxxx0" target="_blank" rel="noopener">访问 GitHub →</a>
       </div>
     </div>
 
@@ -185,11 +225,29 @@
   </section>
 </main>
 
-<footer>
-  <p>© 修的个人网站 &nbsp; Built with HTML CSS JavaScript</p>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="footer-logo">修的个人主页</span>
+      <p>Java 后端 · AI 应用 · 游戏开发 — 记录学习与成长</p>
+    </div>
+    <div class="footer-links">
+      <a href="#home">首页</a>
+      <a href="#projects">项目</a>
+      <a href="#blog">博客</a>
+      <a href="#about">关于我</a>
+      <a href="https://github.com/xiuxxx0" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+  <p class="footer-copy">© 2026 修的个人网站 · Built with HTML CSS JavaScript</p>
 </footer>
 
+<button class="back-to-top" id="back-to-top" aria-label="回到顶部">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"></path></svg>
+</button>
+
 <script src="js/theme.js"></script>
+<script src="js/nav.js"></script>
 <script src="js/github.js"></script>
 <script src="js/projects.js"></script>
 <script src="js/blogs.js"></script>

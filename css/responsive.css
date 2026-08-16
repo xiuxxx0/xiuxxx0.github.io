@@ -1,21 +1,53 @@
-﻿/* =====================
+/* =====================
    Responsive Design
 ===================== */
 @media (max-width: 800px) {
   .navbar {
-    padding: 0 20px;
+    padding: 0 16px 0 20px;
   }
 
   .logo {
     font-size: 18px;
   }
 
-  .navbar ul {
-    gap: 12px;
+  /* 移动端菜单：汉堡按钮 + 下拉面板 */
+  .hamburger {
+    display: flex;
   }
 
-  .navbar a {
-    font-size: 13px;
+  .nav-menu {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 4px;
+    padding: 12px;
+    background: var(--card-bg-solid);
+    border: var(--card-border);
+    border-radius: 18px;
+    box-shadow: var(--card-shadow);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+  }
+
+  .nav-menu.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .nav-menu a {
+    display: block;
+    padding: 10px 16px;
+    border-radius: 12px;
+    font-size: 15px;
+  }
+
+  .nav-menu a:hover {
+    background: var(--tag-bg);
   }
 
   .hero {
@@ -26,6 +58,10 @@
 
   .hero-left {
     text-align: center;
+  }
+
+  .hero-chips {
+    justify-content: center;
   }
 
   .hero-left h1 {
@@ -63,16 +99,26 @@
   .skills {
     padding: 0 20px;
   }
+
+  .footer-inner {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-links {
+    justify-content: center;
+  }
+
+  .back-to-top {
+    right: 16px;
+    bottom: 16px;
+  }
 }
 
 @media (max-width: 500px) {
   .navbar {
     height: 56px;
-    padding: 0 16px;
-  }
-
-  .navbar ul {
-    display: none;
   }
 
   .logo {
@@ -86,5 +132,9 @@
   .buttons a {
     width: 90%;
     text-align: center;
+  }
+
+  .theme-switch {
+    margin-left: 0;
   }
 }

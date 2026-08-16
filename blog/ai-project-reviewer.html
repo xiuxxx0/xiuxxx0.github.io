@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="AI捕鱼游戏：基于 HTML5 Canvas 的捕鱼小游戏，包含 AI 队友、玩家行为分析与 AI 聊天系统。">
+  <meta name="description" content="RepoCourse 开发记录：AI 让「完成项目」越来越快，但完成不等于理解 —— 项目复盘助手的设计与实现。">
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="#2563eb">
   <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0f172a">
-  <title>AI捕鱼游戏项目 - 修的个人网站</title>
-  <link rel="canonical" href="https://xiuxxx0.github.io/projects/ai-fishing.html">
+  <title>RepoCourse：AI 时代的项目复盘助手 - 修的个人网站</title>
+  <link rel="canonical" href="https://xiuxxx0.github.io/blog/ai-project-reviewer.html">
   <link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
   <script>
     /* 防止主题闪烁：渲染前根据 localStorage / 系统偏好设置暗夜模式 */
@@ -45,51 +45,58 @@
 </nav>
 <main>
 <div class="article">
-    <h1>🎣 AI捕鱼游戏</h1>
-    <p class="status">🟢 Online Demo</p>
+  <h1>🤖 RepoCourse：AI 时代的项目复盘助手</h1>
+  <p class="date">发布时间：2026年8月16日</p>
+  <p class="article-intro">
+    AI 让「完成项目」越来越快，但完成不等于理解。
+    这篇文章记录我如何开发 RepoCourse —— 一个输入代码项目、
+    输出技术复盘与学习报告的命令行工具。
+  </p>
 
-    <h2>项目介绍</h2>
-    <p>这是一个基于 HTML5 Canvas 开发的 AI 捕鱼小游戏。玩家控制炮台攻击不同鱼类，并加入 AI 队友、玩家行为分析以及 AI 互动聊天系统。</p>
+  <h2>为什么要做这个工具</h2>
+  <p>
+    AI 辅助编程让项目完成的速度大幅提升，但也带来了三个新问题：
+    不知道自己真正学会了什么；不清楚哪些部分依赖 AI；不知道下一步应该学什么。
+  </p>
+  <p>
+    项目跑通了，知识未必进了脑子。所以我希望做一个工具，
+    把「做完项目」变成「理解项目」——这也是 RepoCourse 名字的由来：
+    把每一个 repo 变成一门 course。
+  </p>
 
-    <h2>项目背景</h2>
-    <p>学习计算机过程中，我希望通过实际项目理解软件开发。因此尝试独立开发一个小游戏，并在基础玩法上加入 AI 功能，探索人工智能与游戏结合的可能。</p>
+  <h2>设计思路：四个环节</h2>
+  <ul>
+    <li>🔍 项目理解：扫描项目结构、技术栈与核心代码逻辑。</li>
+    <li>🤝 AI 协作分析：基于 Git / Agent 日志等证据，复盘你与 AI 的分工（不是作弊检测，而是了解自己）。</li>
+    <li>🎯 技能评估：技能档案 × 项目证据 × Quiz × AI 贡献，评估真实掌握程度。</li>
+    <li>📈 学习反馈：输出学习盲区、面试问题与下一步练习建议。</li>
+  </ul>
 
-    <h2>技术栈</h2>
-    <div class="tags">
-      <span>JavaScript</span>
-      <span>Canvas</span>
-      <span>AI</span>
-      <span>GitHub Pages</span>
-    </div>
+  <h2>技术实现</h2>
+  <p>
+    项目使用 Python 3.10+ 开发，零第三方依赖，LLM 支持 DeepSeek / OpenAI / Ollama。
+    一次复盘输出双报告（《README复盘.md》＋《learning_report.md》）、
+    知识图谱（json / html / canvas / mindmap）与个性化学习计划 learning_plan.json。
+  </p>
 
-    <h2>核心功能</h2>
-    <ul>
-      <li>🤖 AI队友系统：自动分析游戏情况，帮助玩家攻击目标。</li>
-      <li>🐟 鱼类系统：设计不同速度、大小和分值的鱼类，以及 Boss 挑战。</li>
-      <li>📊 玩家行为分析：根据玩家操作调整 AI 行为。</li>
-      <li>💬 AI聊天互动：增加游戏过程中的反馈和角色互动。</li>
-    </ul>
+  <h2>使用方式</h2>
+  <pre><code>pip install repocourse
+apr review .</code></pre>
+  <p>不用安装也可以直接运行：<code>python -m apr review .</code></p>
 
-    <h2>项目截图</h2>
-    <img src="../images/fishing1.jpg" alt="AI捕鱼游戏截图 1" style="width:100%;border-radius:15px;" loading="lazy" decoding="async">
-    <img src="../images/fishing2.jpg" alt="AI捕鱼游戏截图 2" style="width:100%;margin-top:20px;border-radius:15px;" loading="lazy" decoding="async">
+  <h2>开发收获</h2>
+  <ul>
+    <li>把「复盘」流程化：扫描 → 理解 → 评估 → 反馈，每个环节都可以独立打磨。</li>
+    <li>本地证据与 LLM 分析结合，让报告有据可查，而不是空泛的 AI 总结。</li>
+    <li>完整走了一遍 PyPI 包的开发与发布流程。</li>
+  </ul>
 
-    <h2>开发收获</h2>
-    <p>通过这个项目，我学习了：</p>
-    <ul>
-      <li>JavaScript 游戏逻辑设计</li>
-      <li>Canvas 动画开发</li>
-      <li>碰撞检测与状态管理</li>
-      <li>AI 功能在实际项目中的应用</li>
-    </ul>
-
-    <h2>项目地址</h2>
-    <div class="buttons">
-      <a class="btn-primary" href="https://xiuxxx0.github.io/ai-fishing-game/" target="_blank" rel="noopener">在线体验</a>
-      <a class="btn-secondary" href="https://github.com/xiuxxx0/ai-fishing-game" target="_blank" rel="noopener">GitHub 源码</a>
-      <a class="btn-secondary" href="../blog/ai-fishing.html">开发记录</a>
-    </div>
+  <div class="buttons">
+    <a class="btn-primary" href="../projects/ai-project-reviewer.html">查看项目详情</a>
+    <a class="btn-secondary" href="https://github.com/xiuxxx0/ai-project-reviewer" target="_blank" rel="noopener">GitHub 源码</a>
+    <a class="btn-secondary" href="../index.html#blog">← 返回博客列表</a>
   </div>
+</div>
 </main>
 <footer class="site-footer">
   <div class="footer-inner">

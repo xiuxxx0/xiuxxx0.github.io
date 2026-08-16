@@ -1,8 +1,16 @@
-﻿/* =====================
-   Blog List Renderer (inline data)
+/* =====================
+   Blog List Renderer
+   优先加载 data/blogs.json，失败时回退到内置数据
 ===================== */
 const Blogs = (() => {
   const DATA = [
+    {
+      title: "RepoCourse：AI 时代的项目复盘助手",
+      date: "2026-08-16",
+      tag: "AI",
+      desc: "AI 让「完成项目」越来越快，但完成不等于理解：记录项目复盘助手 RepoCourse 的设计与开发过程。",
+      url: "blog/ai-project-reviewer.html"
+    },
     {
       title: "圈一圈（Ouroboros）开发记录",
       date: "2026-08-08",
@@ -11,11 +19,11 @@ const Blogs = (() => {
       url: "blog/ouroboros.html"
     },
     {
-      title: "Java基础学习笔记",
-      date: "2026-07-10",
-      tag: "Java",
-      desc: "从 Java 基础语法到面向对象与数据结构的学习笔记。",
-      url: "blog/java-basic.html"
+      title: "软件设计师备考记录",
+      date: "2026-07-15",
+      tag: "考证",
+      desc: "软件设计师（软考中级）考试概述与备考计划：数据结构、数据库、操作系统与软件工程。",
+      url: "blog/soft-test.html"
     },
     {
       title: "AI捕鱼游戏开发过程",
@@ -24,23 +32,63 @@ const Blogs = (() => {
       desc: "从一个小游戏开始，逐步加入 AI 队友、行为分析与聊天系统的过程记录。",
       url: "blog/ai-fishing.html"
     },
+    {
+      title: "Java基础学习笔记",
+      date: "2026-07-10",
+      tag: "Java",
+      desc: "从 Java 基础语法到面向对象与数据结构的学习笔记。",
+      url: "blog/java-basic.html"
+    }
   ];
 
-  function init() {
+  let data = DATA;
+
+  function fetchJSON(url, timeoutMs) {
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => ctrl.abort(), timeoutMs);
+    return fetch(url, { signal: ctrl.signal, cache: "no-cache" })
+      .then((res) => {
+        clearTimeout(timer);
+        if (!res.ok) throw new Error("HTTP " + res.status);
+        return res.json();
+      })
+      .catch((err) => {
+        clearTimeout(timer);
+        throw err;
+      });
+  }
+
+  function cardHTML(b, i) {
+    return (
+      '<div class="blog-card reveal" style="transition-delay:' + i * 0.08 + 's">' +
+      '<div class="blog-meta">' +
+      '<span class="blog-tag">' + b.tag + "</span>" +
+      '<span class="blog-date">' + b.date + "</span>" +
+      "</div>" +
+      "<h3>" + b.title + "</h3>" +
+      '<p class="blog-desc">' + b.desc + "</p>" +
+      '<a href="' + b.url + '">阅读全文 →</a>' +
+      "</div>"
+    );
+  }
+
+  function render(container) {
+    container.innerHTML = data.map(cardHTML).join("");
+  }
+
+  async function init() {
     const container = document.getElementById("blog-list");
     if (!container) return;
 
-    container.innerHTML = DATA.map((b, i) => `
-      <div class="blog-card reveal" style="transition-delay:${i * 0.08}s">
-        <div class="blog-meta">
-          <span class="blog-tag">${b.tag}</span>
-          <span class="blog-date">${b.date}</span>
-        </div>
-        <h3>${b.title}</h3>
-        <p class="blog-desc">${b.desc}</p>
-        <a href="${b.url}" target="_blank">阅读全文 →</a>
-      </div>
-    `).join("");
+    try {
+      const json = await fetchJSON("data/blogs.json", 2500);
+      if (Array.isArray(json) && json.length) data = json;
+    } catch (err) {
+      /* 离线或加载失败时使用内置数据 */
+      console.warn("blogs.json load failed, using inline data:", err.message);
+    }
+
+    render(container);
   }
 
   return { init };

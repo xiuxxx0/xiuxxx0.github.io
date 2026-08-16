@@ -1,4 +1,4 @@
-﻿/* =====================
+/* =====================
    Layout: Navbar, Sections, Footer
 ===================== */
 
@@ -37,7 +37,7 @@ html.dark .navbar.scrolled {
   font-weight: bold;
 }
 
-.navbar ul {
+.nav-menu {
   display: flex;
   gap: 30px;
 }
@@ -137,10 +137,66 @@ html.dark .icon-moon {
   transform: rotate(0deg) scale(1);
 }
 
+/* ---- 导航操作区：主题开关 + 汉堡菜单 ---- */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.hamburger {
+  display: none;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  border-radius: 10px;
+}
+
+.hamburger:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.hamburger span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--text);
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.hamburger[aria-expanded="true"] span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.hamburger[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger[aria-expanded="true"] span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* 当前区块高亮（滚动监听） */
+.nav-menu a.active {
+  color: var(--primary);
+  font-weight: 600;
+}
+
 /* ---- Sections ---- */
 section {
   padding: var(--section-pad);
   min-height: 500px;
+  scroll-margin-top: 84px;
   animation: fadeIn 0.8s ease;
 }
 
@@ -179,13 +235,121 @@ section {
 }
 
 /* ---- Footer ---- */
-footer {
-  text-align: center;
-  padding: 35px;
-  color: var(--text-muted);
-  font-size: 14px;
+.site-footer {
   border-top: 1px solid var(--nav-border);
-  transition: color var(--transition);
+  padding: 46px 24px 30px;
+  text-align: center;
+  color: var(--text-muted);
+  transition: color var(--transition), border-color var(--transition);
+}
+
+.footer-inner {
+  max-width: var(--container);
+  margin: 0 auto 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 28px;
+  flex-wrap: wrap;
+  text-align: left;
+}
+
+.footer-brand .footer-logo {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.footer-brand p {
+  margin-top: 8px;
+  font-size: 14px;
+}
+
+.footer-links {
+  display: flex;
+  gap: 22px;
+  flex-wrap: wrap;
+  padding-top: 4px;
+}
+
+.footer-links a {
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+.footer-links a:hover {
+  color: var(--primary);
+}
+
+.footer-copy {
+  font-size: 13px;
+}
+
+/* ---- 回到顶部按钮 ---- */
+.back-to-top {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 900;
+  width: 46px;
+  height: 46px;
+  padding: 0;
+  border-radius: 50%;
+  border: var(--card-border);
+  background: var(--card-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: var(--text);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--card-shadow);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(14px);
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease,
+    background var(--transition), border var(--transition), color var(--transition);
+}
+
+.back-to-top.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.back-to-top:hover {
+  color: var(--primary);
+  transform: translateY(-3px);
+}
+
+.back-to-top:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.back-to-top svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* ---- Hero 信息徽章 ---- */
+.hero-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 18px 0 4px;
+}
+
+.hero-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  background: var(--stats-bg);
+  color: var(--text-secondary);
+  font-size: 13px;
 }
 
 /* ---- 简洁动态背景 ---- */
