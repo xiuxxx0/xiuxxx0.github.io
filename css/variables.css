@@ -1,4 +1,4 @@
-﻿/* =====================
+/* =====================
    CSS Custom Properties
    主题变量 & 全局配置
 ===================== */
@@ -27,6 +27,12 @@
   --tag-color: #2563eb;
   --success: #22c55e;
   --stats-bg: #f0f4ff;
+  /* 贡献日历等级色 */
+  --cal-0: #ebedf0;
+  --cal-1: #9be9a8;
+  --cal-2: #40c463;
+  --cal-3: #30a14e;
+  --cal-4: #216e39;
   --radius: 20px;
   --radius-sm: 15px;
   --radius-full: 30px;
@@ -65,4 +71,10 @@ html.dark {
   --tag-color: #93c5fd;
   --success: #3fb950;
   --stats-bg: #1e293b;
+  /* 贡献日历等级色（暗色） */
+  --cal-0: #21262d;
+  --cal-1: #0e4429;
+  --cal-2: #006d32;
+  --cal-3: #26a641;
+  --cal-4: #39d353;
 }

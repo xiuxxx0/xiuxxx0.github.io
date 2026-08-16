@@ -450,6 +450,96 @@
   border-radius: 10px;
 }
 
+/* ---- 贡献日历 ---- */
+.cal-fallback {
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+.cal-summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.cal-total {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.cal-total strong {
+  color: var(--primary);
+  font-size: 18px;
+  margin: 0 2px;
+}
+
+.cal-legend {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.cal-legend .sw {
+  width: 11px;
+  height: 11px;
+  border-radius: 3px;
+  background: var(--cal-0);
+}
+
+.cal-legend .sw.l1 { background: var(--cal-1); }
+.cal-legend .sw.l2 { background: var(--cal-2); }
+.cal-legend .sw.l3 { background: var(--cal-3); }
+.cal-legend .sw.l4 { background: var(--cal-4); }
+
+.cal-months {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(96px, 1fr));
+  gap: 14px 12px;
+}
+
+.cal-month {
+  min-width: 0;
+}
+
+.cal-month h4 {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+
+.cal-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 3px;
+}
+
+.cal-day {
+  aspect-ratio: 1;
+  border-radius: 3px;
+  background: var(--cal-0);
+  min-width: 0;
+}
+
+.cal-day.l1 { background: var(--cal-1); }
+.cal-day.l2 { background: var(--cal-2); }
+.cal-day.l3 { background: var(--cal-3); }
+.cal-day.l4 { background: var(--cal-4); }
+
+.cal-day.empty {
+  background: transparent;
+}
+
+.cal-day:not(.empty):hover {
+  outline: 1.5px solid var(--primary);
+  outline-offset: -1px;
+}
+
 .github-stats {
   display: flex;
   justify-content: center;
